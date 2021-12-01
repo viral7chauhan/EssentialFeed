@@ -32,15 +32,15 @@ class RemoteFeedLoaderTest: XCTestCase {
     func test_init_doesNotRequestDataFromURL() {
         let client = HTTPClient()
         _ = RemoteFeedLoader(client: client)
-        
+
         XCTAssertNil(client.requestedURL)
     }
 
-//    func test_init_requestDataFromURL() {
-//        let client = HTTPClient()
-//        let sut = RemoteFeedLoader(client: client)
-//        sut.load(form: URL(string: "https://a-url.com")!)
-//        XCTAssertNotNil(sut.client, )
-//    }
+    func test_load_requestDataFromURL() {
+        let client = HTTPClient()
+        let sut = RemoteFeedLoader(client: client)
+        sut.load(form: URL(string: "https://a-url.com")!)
+        XCTAssertNotNil(sut.client)
+    }
 
 }
