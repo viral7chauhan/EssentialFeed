@@ -71,6 +71,17 @@
 			path = "Feed API";
 			sourceTree = "<group>";
 		};
+		E0A9AE612767589B00DD706E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E0CC314F2756A9A900CC3E0C /* EssentialFeedApp.swift */,
+				E0CC31512756A9A900CC3E0C /* ContentView.swift */,
+				E0CC31532756A9AA00CC3E0C /* Assets.xcassets */,
+				E0CC31582756A9AA00CC3E0C /* EssentialFeed.entitlements */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		E0CC31432756A9A900CC3E0C = {
 			isa = PBXGroup;
 			children = (
@@ -92,13 +103,10 @@
 		E0CC314E2756A9A900CC3E0C /* EssentialFeed */ = {
 			isa = PBXGroup;
 			children = (
-				E0DDF03B27575B6A007F97B0 /* Feed API */,
-				E0CC314F2756A9A900CC3E0C /* EssentialFeedApp.swift */,
-				E0CC31512756A9A900CC3E0C /* ContentView.swift */,
-				E0CC31532756A9AA00CC3E0C /* Assets.xcassets */,
-				E0CC31582756A9AA00CC3E0C /* EssentialFeed.entitlements */,
-				E0CC31552756A9AA00CC3E0C /* Preview Content */,
 				E0CC31622756AACA00CC3E0C /* Feed Feature */,
+				E0DDF03B27575B6A007F97B0 /* Feed API */,
+				E0A9AE612767589B00DD706E /* Helper */,
+				E0CC31552756A9AA00CC3E0C /* Preview Content */,
 			);
 			path = EssentialFeed;
 			sourceTree = "<group>";
