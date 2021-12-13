@@ -78,13 +78,11 @@ class RemoteFeedLoaderTest: XCTestCase {
                              location: "a location",
                              imageURL: URL(string: "https://www.another-url.com")!)
 
-        let itemJsons = [
-            "items": [item1.json, item2.json]
-        ]
+        let models = [item1.model, item2.model]
 
-        expect(sut, toCompleteWith: .success([item1.model, item2.model])) {
-            let json = try! JSONSerialization.data(withJSONObject: itemJsons)
-            client.complete(withStatus: 200, data: json)
+        expect(sut, toCompleteWith: .success(models)) {
+            let jsonData = makeItemJson([item1.json, item2.json])
+            client.complete(withStatus: 200, data: jsonData)
         }
 
     }
@@ -120,6 +118,11 @@ class RemoteFeedLoaderTest: XCTestCase {
         }
 
         return (item, json)
+    }
+
+    private func makeItemJson(_ itemJsons: [[String: Any]]) -> Data {
+        let json = [ "items": itemJsons]
+        return try! JSONSerialization.data(withJSONObject: json)
     }
 
     private func expect(_ sut: RemoteFeedLoader,
