@@ -37,20 +37,21 @@ class URLSessionHTTPClientTest: XCTestCase {
 
         let sut = URLSessionHTTPClient()
 
-//        let exp = expectation(description: "Wait to request complete")
+        let exp = expectation(description: "Wait to request")
 
         sut.get(from: url) { result in
             switch result {
                 case let .failure(receivedError as NSError):
-                    XCTAssertEqual(receivedError, error)
+                    XCTAssertEqual(receivedError.domain, error.domain)
+                    XCTAssertEqual(receivedError.code, error.code)
                 default:
                     XCTFail("Expected failure with error \(error), get \(result) instead")
             }
 
-//            exp.fulfill()
+            exp.fulfill()
         }
 
-//        wait(for: [exp], timeout: 1.0)
+        wait(for: [exp], timeout: 2.0)
         URLProtocolStub.stopInterceptingRequest()
     }
 
