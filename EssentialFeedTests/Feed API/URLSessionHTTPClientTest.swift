@@ -8,7 +8,7 @@
 import XCTest
 import EssentialFeed
 
-class URLSessionHTTPClient {
+class URLSessionHTTPClient: HTTPClient {
 
     private var session: URLSession
 
@@ -108,7 +108,7 @@ class URLSessionHTTPClientTest: XCTestCase {
         return URL(string: "https://any-url.com")!
     }
 
-    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> URLSessionHTTPClient {
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> HTTPClient {
         let sut = URLSessionHTTPClient()
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
@@ -132,34 +132,29 @@ class URLSessionHTTPClientTest: XCTestCase {
 
     private func resultErrorFor(data: Data?, response: URLResponse?, error: Error?,
                                 file: StaticString = #filePath, line: UInt = #line) -> Error? {
-
         let result = resultFor(data: data, response: response, error: error)
-        var resultError: Error?
         switch result {
             case let .failure(error):
-                resultError = error
+                return error
 
             default:
                 XCTFail("Expected failure \(result)", file: file, line: line)
-                resultError = nil
+                return nil
         }
-        return resultError
     }
 
     private func resultValuesFor(data: Data?, response: URLResponse?, error: Error?,
                                  file: StaticString = #filePath, line: UInt = #line) -> (data :Data?, response: HTTPURLResponse?)? {
 
         let result = resultFor(data: data, response: response, error: error)
-        var resultValue: (Data?, HTTPURLResponse?)?
         switch result {
             case let .success(data, response):
-                resultValue = (data, response)
+                return (data, response)
 
             default:
                 XCTFail("Expected failure \(result)", file: file, line: line)
                 return nil
         }
-        return resultValue
     }
 
     private func resultFor(data: Data?, response: URLResponse?, error: Error?,
