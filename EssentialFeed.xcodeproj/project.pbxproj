@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E0614CD927708A2700546A3D /* URLSessionHTTPClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0614CD827708A2700546A3D /* URLSessionHTTPClientTest.swift */; };
 		E0614CDC2771F00600546A3D /* XCTestCase+MemoryTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0614CDB2771F00600546A3D /* XCTestCase+MemoryTracker.swift */; };
+		E0614CDE27732D2A00546A3D /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0614CDD27732D2A00546A3D /* URLSessionHTTPClient.swift */; };
 		E0A9AE5D27674A7C00DD706E /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A9AE5C27674A7C00DD706E /* HTTPClient.swift */; };
 		E0A9AE5F27674B1600DD706E /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A9AE5E27674B1600DD706E /* FeedItemsMapper.swift */; };
 		E0CC31502756A9A900CC3E0C /* EssentialFeedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CC314F2756A9A900CC3E0C /* EssentialFeedApp.swift */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		E0614CD827708A2700546A3D /* URLSessionHTTPClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTest.swift; sourceTree = "<group>"; };
 		E0614CDB2771F00600546A3D /* XCTestCase+MemoryTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryTracker.swift"; sourceTree = "<group>"; };
+		E0614CDD27732D2A00546A3D /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		E0A9AE5C27674A7C00DD706E /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		E0A9AE5E27674B1600DD706E /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
 		E0CC314C2756A9A900CC3E0C /* EssentialFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +158,7 @@
 				E0DDF03C27575B7A007F97B0 /* RemoteFeedLoader.swift */,
 				E0A9AE5C27674A7C00DD706E /* HTTPClient.swift */,
 				E0A9AE5E27674B1600DD706E /* FeedItemsMapper.swift */,
+				E0614CDD27732D2A00546A3D /* URLSessionHTTPClient.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				E0CC31522756A9A900CC3E0C /* ContentView.swift in Sources */,
 				E0CC31502756A9A900CC3E0C /* EssentialFeedApp.swift in Sources */,
 				E0A9AE5D27674A7C00DD706E /* HTTPClient.swift in Sources */,
+				E0614CDE27732D2A00546A3D /* URLSessionHTTPClient.swift in Sources */,
 				E0A9AE5F27674B1600DD706E /* FeedItemsMapper.swift in Sources */,
 				E0CC31612756AA4300CC3E0C /* FeedLoader.swift in Sources */,
 				E0DDF03D27575B7A007F97B0 /* RemoteFeedLoader.swift in Sources */,
