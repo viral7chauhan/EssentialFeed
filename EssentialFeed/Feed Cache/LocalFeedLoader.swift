@@ -9,27 +9,27 @@ import Foundation
 
 public final class LocalFeedLoader {
     private let store: FeedStore
-    private let timestamp: () -> Date
+    private let currentDate: () -> Date
 
     public typealias SaveResult = Error?
     public typealias LoadResult = LoadFeedResult
 
     public init(store: FeedStore, currentDate: @escaping () -> Date) {
         self.store = store
-        self.timestamp = currentDate
+        self.currentDate = currentDate
     }
 
     public func load(completion: @escaping (LoadResult) -> Void) {
-        store.retrieve { result in
+        store.retrieve { [unowned self] result in
             switch result {
                 case let .failure(error):
                     completion(.failure(error))
 
-                case .empty:
-                    completion(.success([]))
-                    
-                case let .found(feed, _):
+                case let .found(feed, timestamp) where self.validate(timestamp):
                     completion(.success(feed.toModel()))
+
+                case .found, .empty:
+                    completion(.success([]))
             }
         }
     }
@@ -47,11 +47,19 @@ public final class LocalFeedLoader {
     }
 
     private func cache(_ feed: [FeedImage], with completion: @escaping (SaveResult) -> Void) {
-        store.insert(feed.toLocal(), timestamp: timestamp()) { [weak self] error in
+        store.insert(feed.toLocal(), timestamp: currentDate()) { [weak self] error in
             guard self != nil else { return }
 
             completion(error)
         }
+    }
+
+    private func validate(_ timestamp: Date) -> Bool {
+        let calendar = Calendar(identifier: .gregorian)
+        guard let maxCacheAge = calendar.date(byAdding: .day, value: 7, to: timestamp) else {
+            return false
+        }
+        return currentDate() < maxCacheAge
     }
 }
 
