@@ -74,6 +74,26 @@ class LocalFeedFromCacheUsecaseTests: XCTestCase {
         }
     }
 
+    func test_load_doesNotDeliversErrorOnRetrievalWhenStoreDeinitialized() {
+        let store = FeedStoreSpy()
+        var sut: LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init)
+        var receivedError: Error?
+
+        sut?.load { result in
+            switch result {
+                case let .failure(error):
+                    receivedError = error
+
+                default:
+                    XCTFail("This case should fail")
+            }
+        }
+
+        sut = nil
+        store.completeRetrieval(with: anyNSError())
+
+        XCTAssertNil(receivedError)
+    }
 
     // MARK: - Helper
 
