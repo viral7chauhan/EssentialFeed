@@ -27,3 +27,4 @@ steps:
     packageApp: false
     useXcpretty: true 
     publishJUnitResults: true
+    testRunTitle: 'CI Scheme'
