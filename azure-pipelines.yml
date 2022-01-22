@@ -12,7 +12,7 @@ pool:
 steps:
 - task: Xcode@5
   inputs:
-    actions: 'build'
+    actions: 'clean build'
     scheme: 'EssentialFeed'
     sdk: 'macosx'
     configuration: 'Release'
@@ -25,3 +25,5 @@ steps:
     scheme: 'CI'
     xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
     packageApp: false
+    useXcpretty: true 
+    publishJUnitResults: true
