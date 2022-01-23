@@ -28,9 +28,3 @@ steps:
     useXcpretty: true 
     publishJUnitResults: true
     testRunTitle: 'CI Scheme'
-
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/cobertura.xml'
-    reportDirectory: '$(System.DefaultWorkingDirectory)/**/cobertura'
