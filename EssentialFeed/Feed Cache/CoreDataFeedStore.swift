@@ -15,7 +15,7 @@ public final class CoreDataFeedStore: FeedStore {
     }
 
     public func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertCompletion) {
-
+        
     }
 
     public func retrieve(completion: @escaping RetrievalCompletion) {
