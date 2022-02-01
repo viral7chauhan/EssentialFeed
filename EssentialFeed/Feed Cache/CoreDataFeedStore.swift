@@ -24,7 +24,7 @@ public final class CoreDataFeedStore: FeedStore {
         let context = self.context
         context.perform {
             do {
-                let managedCache = ManagedCache(context: context)
+                let managedCache = try ManagedCache.newUniqueInstance(in: context)
                 managedCache.timestamp = timestamp
                 managedCache.feed = ManagedFeedImage.images(from: feed, in: context)
 
@@ -37,14 +37,17 @@ public final class CoreDataFeedStore: FeedStore {
     }
 
     public func retrieve(completion: @escaping RetrievalCompletion) {
-        do {
-            if let cache = try ManagedCache.find(in: context) {
-                completion(.found(feed: cache.localFeed, timestamp: cache.timestamp))
-            } else {
-                completion(.empty)
+        let context = self.context
+        context.perform {
+            do {
+                if let cache = try ManagedCache.find(in: context) {
+                    completion(.found(feed: cache.localFeed, timestamp: cache.timestamp))
+                } else {
+                    completion(.empty)
+                }
+            } catch {
+                completion(.failure(error))
             }
-        } catch {
-            completion(.failure(error))
         }
     }
 }
@@ -73,7 +76,9 @@ private extension NSPersistentContainer {
 
 private extension NSManagedObjectModel {
     static func with(name: String, in bundle: Bundle) -> NSManagedObjectModel? {
-        return bundle.url(forResource: name, withExtension: "momd").flatMap { NSManagedObjectModel(contentsOf: $0) }
+        return bundle
+            .url(forResource: name, withExtension: "momd")
+            .flatMap { NSManagedObjectModel(contentsOf: $0) }
     }
 }
 
@@ -86,6 +91,11 @@ private class ManagedCache: NSManagedObject {
         let request = NSFetchRequest<ManagedCache>(entityName: ManagedCache.entity().name!)
         request.returnsDistinctResults = false
         return try context.fetch(request).first
+    }
+
+    static func newUniqueInstance(in context: NSManagedObjectContext) throws -> ManagedCache {
+        try find(in: context).map(context.delete)
+        return ManagedCache(context: context)
     }
 
     var localFeed: [LocalFeedImage] {
