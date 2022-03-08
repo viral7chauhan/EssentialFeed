@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal final class FeedItemsMapper {
+final class FeedItemsMapper {
 
     private struct Root: Decodable {
         let items: [RemoteFeedItem]
@@ -17,7 +17,7 @@ internal final class FeedItemsMapper {
         return 200
     }
 
-    internal static func map(_ data: Data,
+    static func map(_ data: Data,
                              response: HTTPURLResponse) throws -> [RemoteFeedItem] {
 
         guard response.statusCode == OK_200,
