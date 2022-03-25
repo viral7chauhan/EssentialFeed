@@ -18,13 +18,31 @@ steps:
     configuration: 'Release'
     xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
     xcodeVersion: 'default' # Options: 8, 9, 10, 11, 12, default, specifyPath
+
+
+- task: Xcode@5
+  inputs:
+    actions: 'clean build'
+    scheme: 'EssentialFeed'
+    sdk: 'iphonesimulator'
+    configuration: 'Release'
+    xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
+    xcodeVersion: 'default' # Options: 8, 9, 10, 11, 12, default, specifyPath
 - task: Xcode@5
   inputs:
     actions: 'test'
     sdk: 'macosx'
-    scheme: 'CI'
-    xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
+    scheme: 'CI_macOS'
+    xcodeVersion: '13'
     packageApp: false
-    useXcpretty: true 
     publishJUnitResults: true
-    testRunTitle: 'CI Scheme'
+    testRunTitle: 'CI macOS'
+- task: Xcode@5
+  inputs:
+    actions: 'test'
+    sdk: 'iphonesimulator'
+    scheme: 'CI_iOS'
+    xcodeVersion: '13'
+    packageApp: false
+    publishJUnitResults: true
+    testRunTitle: 'CI iOS'
