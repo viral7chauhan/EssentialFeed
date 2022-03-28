@@ -22,7 +22,7 @@ steps:
   inputs:
     actions: 'test'
     sdk: 'macosx'
-    scheme: 'CI'
+    scheme: 'CI_macOS'
     xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
     packageApp: false
     useXcpretty: true 
