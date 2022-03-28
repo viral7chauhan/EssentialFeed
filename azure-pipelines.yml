@@ -31,7 +31,7 @@ steps:
 - task: Xcode@5
   inputs:
     actions: 'clean build test'
-    sdk: 'iphomesimulator'
+    sdk: 'iphonesimulator'
     scheme: 'CI_iOS'
     xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
     packageApp: false
