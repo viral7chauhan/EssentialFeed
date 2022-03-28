@@ -33,8 +33,9 @@ steps:
     actions: 'clean build test'
     sdk: 'iphonesimulator'
     scheme: 'CI_iOS'
+    xcodeVersion: '13'
     packageApp: false
     destinationPlatformOption: 'iOS'
-    destinationSimulators: 'iPhone 13,OS=15.0'
+    destinationSimulators: 'iPhone 13'
     publishJUnitResults: true
     testRunTitle: 'CI iOS Scheme'
