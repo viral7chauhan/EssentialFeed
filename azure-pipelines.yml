@@ -27,4 +27,14 @@ steps:
     packageApp: false
     useXcpretty: true 
     publishJUnitResults: true
-    testRunTitle: 'CI Scheme'
+    testRunTitle: 'CI MacOS Scheme'
+- task: Xcode@5
+  inputs:
+    actions: 'clean build test'
+    sdk: 'iphomesimulator'
+    scheme: 'CI_iOS'
+    xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
+    packageApp: false
+    useXcpretty: true
+    publishJUnitResults: true
+    testRunTitle: 'CI iOS Scheme'
