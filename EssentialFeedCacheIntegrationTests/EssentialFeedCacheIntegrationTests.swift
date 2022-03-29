@@ -21,7 +21,7 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
 
         undoStoreSideEffects()
     }
-    
+
     func test_load_delieversNoItemOnEmptyCache() {
         let sut = makeSUT()
 
