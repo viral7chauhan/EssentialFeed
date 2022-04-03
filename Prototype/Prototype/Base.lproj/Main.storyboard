@@ -108,6 +108,7 @@ Location</string>
                                 <connections>
                                     <outlet property="descriptionLabel" destination="kR1-EL-Tt4" id="9OT-FN-YZO"/>
                                     <outlet property="feedImageView" destination="8oq-rd-MjK" id="cdn-vR-2Po"/>
+                                    <outlet property="feedImagenContainer" destination="jjB-Ie-EgI" id="dl8-xU-b6c"/>
                                     <outlet property="locationContainer" destination="oz4-Kb-U1L" id="QyT-us-Mbr"/>
                                     <outlet property="locationLabel" destination="2RN-YJ-PeF" id="taW-si-4mj"/>
                                 </connections>
