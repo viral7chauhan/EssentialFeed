@@ -170,6 +170,31 @@ class FeedViewControllerTests: XCTestCase {
 
     }
 
+    func test_feedImageView_rendersImageLoadedFromURL() {
+        let (sut, loader) = makeSUT()
+
+        sut.loadViewIfNeeded()
+        loader.completeFeedLoading(with: [makeImage(), makeImage()])
+
+        let view0 = sut.simulateFeedImageVisible(at: 0)
+        let view1 = sut.simulateFeedImageVisible(at: 1)
+
+        XCTAssertEqual(view0?.renderedImage, .none, "Expected no image for first view while loading first image")
+        XCTAssertEqual(view1?.renderedImage, .none, "Expected no image for second view while loading second image")
+
+        let imageData0 = UIImage.make(withColor: .red).pngData()!
+        loader.completeImageLoading(with: imageData0, at: 0)
+
+        XCTAssertEqual(view0?.renderedImage, imageData0, "Expected image for first view once first image loading completed successfully.")
+        XCTAssertEqual(view1?.renderedImage, .none, "Expected no image state change for second view once first image loading completed successfully")
+
+        let imageData1 = UIImage.make(withColor: .blue).pngData()!
+        loader.completeImageLoading(with: imageData1, at: 1)
+        XCTAssertEqual(view0?.renderedImage, imageData0, "Expected no state change for first view once second image loading completed successfully")
+        XCTAssertEqual(view1?.renderedImage, imageData1, "Expected image for second view once second image loading completed succssfully.")
+
+    }
+
     // MARK: - Helper
 
     class LoaderSpy: FeedLoader, FeedImageDataLoader {
@@ -276,6 +301,10 @@ private extension FeedImageCell {
         return feedImageContainer.isShimmering
     }
 
+    var renderedImage: Data? {
+        return feedImageView.image?.pngData()
+    }
+
     var locationText: String? {
         return locationLabel.text
     }
@@ -285,12 +314,25 @@ private extension FeedImageCell {
     }
 }
 
-extension UIRefreshControl {
+private extension UIRefreshControl {
     func simulatorePullToRefresh() {
         allTargets.forEach { target in
             actions(forTarget: target, forControlEvent: .valueChanged)?.forEach({
                 (target as NSObject).perform(Selector($0))
             })
         }
+    }
+}
+
+private extension UIImage {
+    static func make(withColor color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()!
+        context.setFillColor(color.cgColor)
+        context.fill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
     }
 }
