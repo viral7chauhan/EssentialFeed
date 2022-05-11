@@ -290,60 +290,41 @@ class FeedViewControllerTests: XCTestCase {
 
     // MARK: - Helper
 
-    class LoaderSpy: FeedLoader, FeedImageDataLoader {
+    func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: FeedViewController, loader: LoaderSpy) {
+        let loader = LoaderSpy()
+        let sut = FeedViewController(feedLoader: loader, imageLoader: loader)
+        trackForMemoryLeaks(loader, file: file, line: line)
+        trackForMemoryLeaks(sut, file: file, line: line)
+        return (sut, loader)
+    }
 
-        // MARK: - FeedLoader
+    func makeImage(description: String? = nil, location: String? = nil, url: URL = URL(string: "https://a-url.com")!) -> FeedImage {
+        FeedImage(id: UUID(), description: description, location: location, url: url)
+    }
 
-        private var feedRequests = [(FeedLoader.Result) -> Void]()
-
-        var loadFeedCallCount: Int {
-            feedRequests.count
-        }
-        
-        func load(completion: @escaping (FeedLoader.Result) -> Void) {
-            feedRequests.append(completion)
-        }
-
-        func completeFeedLoading(with feed: [FeedImage] = [], at index: Int = 0) {
-            feedRequests[index](.success(feed))
-        }
-
-        func completeFeedLoadingWithError(at index: Int) {
-            let error = NSError(domain: "an error", code: 0)
-            feedRequests[index](.failure(error))
+    func assertThat(sut: FeedViewController, isRendering feed: [FeedImage], file: StaticString = #filePath, line: UInt = #line) {
+        guard sut.numberOfRenderedFeedImageViews() == feed.count else {
+            return XCTFail("Expected \(feed.count) images, got \(sut.numberOfRenderedFeedImageViews()) instead.", file: file, line: line)
         }
 
-        // MARK: - FeedImageDataLoader
+        feed.enumerated().forEach { index, image in
+            assertThat(sut: sut, hasConfiguareFor: image, at: index)
+        }
+    }
 
-        private struct TaskSpy: FeedImageDataLoaderTask {
-            let cancelCallback: () -> Void
+    func assertThat(sut: FeedViewController, hasConfiguareFor image: FeedImage, at index: Int, file: StaticString = #filePath, line: UInt = #line) {
+        let view = sut.feedImageView(at: index)
 
-            func cancel() {
-                cancelCallback()
-            }
+        guard let cell = view as? FeedImageCell else {
+            return XCTFail("Expected \(FeedImageCell.self) instance, get \(String(describing: view)) instead", file: file, line: line)
         }
 
-        private var imageRequests = [(url: URL, completion: (FeedImageDataLoader.Result) -> Void)]()
-        var loadedImageURLs: [URL] {
-            return imageRequests.map { $0.url }
-        }
+        let shouldLocationBeVisible = (image.location != nil)
+        XCTAssertEqual(cell.isShowingLocation, shouldLocationBeVisible, "Expected `isShowingLocation` to be \(shouldLocationBeVisible) for image view at index (\(index))", file: file, line: line)
 
-        private(set) var cancelledImageURLs = [URL]()
+        XCTAssertEqual(cell.locationText, image.location, "Expected location text to be \(String(describing: image.location)) for image view at index (\(index))", file: file, line: line)
 
-        func loadImageData(from url: URL, with completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
-            imageRequests.append((url, completion))
-            return TaskSpy { [weak self] in
-                self?.cancelledImageURLs.append(url)
-            }
-        }
+        XCTAssertEqual(cell.descriptionText, image.description, "Expected description text to be \(String(describing: image.description)) for image view at index (\(index)", file: file, line: line)
 
-        func completeImageLoading(with imageData: Data = Data(), at index: Int = 0) {
-            imageRequests[index].completion(.success(imageData))
-        }
-
-        func completeImageLoadingWithError(at index: Int = 0) {
-            let error = NSError(domain: "a error", code: 0)
-            imageRequests[index].completion(.failure(error))
-        }
     }
 }
