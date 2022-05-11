@@ -360,8 +360,7 @@
 		E0E689CE27EE3A5100A3B866 /* EssentialFeediOS */ = {
 			isa = PBXGroup;
 			children = (
-				E0F6B9FF282BBBCC005CFABD /* Views */,
-				E0F6B9FE282BBBC6005CFABD /* Controllers */,
+				E0F6BA0A282BC091005CFABD /* Feed UI */,
 			);
 			path = EssentialFeediOS;
 			sourceTree = "<group>";
@@ -369,8 +368,8 @@
 		E0E689D827EE3A5100A3B866 /* EssentialFeediOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				E0F6B9FD282BBBB2005CFABD /* Controllers */,
-				E0F6B9F4282B9E15005CFABD /* Helpers */,
+				E0F6BA0B282BC15D005CFABD /* Helpers */,
+				E0F6BA09282BC069005CFABD /* Feed UI */,
 			);
 			path = EssentialFeediOSTests;
 			sourceTree = "<group>";
@@ -387,10 +386,6 @@
 		E0F6B9F4282B9E15005CFABD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				E0F6B9F5282B9E33005CFABD /* UIImage+TestHelpers.swift */,
-				E0F6B9F7282B9EC6005CFABD /* UIRefreshControl+TestHelpers.swift */,
-				E0F6B9F9282B9F21005CFABD /* UIButton+TestHelpers.swift */,
-				E0F6B9FB282B9F85005CFABD /* UIControl+TestHelpers.swift */,
 				E0F6BA00282BBCBA005CFABD /* FeedViewController+TestHelpers.swift */,
 				E0F6BA02282BBD21005CFABD /* FeedImageCell+TestHelpers.swift */,
 				E0F6BA04282BBDA0005CFABD /* FeedViewControllerTests+LoaderSpy.swift */,
@@ -402,6 +397,7 @@
 		E0F6B9FD282BBBB2005CFABD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E0F6B9F4282B9E15005CFABD /* Helpers */,
 				E00CDCC427F99F4C006798B6 /* FeedViewControllerTests.swift */,
 			);
 			path = Controllers;
@@ -422,6 +418,34 @@
 				E0992F4928141305000F4FC3 /* UIView+Shimmering.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E0F6BA09282BC069005CFABD /* Feed UI */ = {
+			isa = PBXGroup;
+			children = (
+				E0F6B9FD282BBBB2005CFABD /* Controllers */,
+			);
+			path = "Feed UI";
+			sourceTree = "<group>";
+		};
+		E0F6BA0A282BC091005CFABD /* Feed UI */ = {
+			isa = PBXGroup;
+			children = (
+				E0F6B9FF282BBBCC005CFABD /* Views */,
+				E0F6B9FE282BBBC6005CFABD /* Controllers */,
+			);
+			path = "Feed UI";
+			sourceTree = "<group>";
+		};
+		E0F6BA0B282BC15D005CFABD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E0F6B9F5282B9E33005CFABD /* UIImage+TestHelpers.swift */,
+				E0F6B9F7282B9EC6005CFABD /* UIRefreshControl+TestHelpers.swift */,
+				E0F6B9F9282B9F21005CFABD /* UIButton+TestHelpers.swift */,
+				E0F6B9FB282B9F85005CFABD /* UIControl+TestHelpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		E0F95A5127E8F3DB000A2C16 /* EssentialFeed */ = {
