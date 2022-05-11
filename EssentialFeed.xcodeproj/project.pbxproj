@@ -62,6 +62,7 @@
 		E0F6BA05282BBDA0005CFABD /* FeedViewControllerTests+LoaderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F6BA04282BBDA0005CFABD /* FeedViewControllerTests+LoaderSpy.swift */; };
 		E0F6BA07282BBE72005CFABD /* FeedViewControllerTests+Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F6BA06282BBE72005CFABD /* FeedViewControllerTests+Assertions.swift */; };
 		E0F6BA0E282BC210005CFABD /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F6BA0D282BC210005CFABD /* FeedImageDataLoader.swift */; };
+		E0F6BA10282BC274005CFABD /* FeedRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F6BA0F282BC274005CFABD /* FeedRefreshViewController.swift */; };
 		E0F95A5427E8F3DB000A2C16 /* EssentialFeedMacFramework.docc in Sources */ = {isa = PBXBuildFile; fileRef = E0F95A5327E8F3DB000A2C16 /* EssentialFeedMacFramework.docc */; };
 		E0F95A5A27E8F3DB000A2C16 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F95A5027E8F3DB000A2C16 /* EssentialFeed.framework */; };
 		E0F95A6027E8F3DB000A2C16 /* EssentialFeedMacFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = E0F95A5227E8F3DB000A2C16 /* EssentialFeedMacFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -156,6 +157,7 @@
 		E0F6BA04282BBDA0005CFABD /* FeedViewControllerTests+LoaderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+LoaderSpy.swift"; sourceTree = "<group>"; };
 		E0F6BA06282BBE72005CFABD /* FeedViewControllerTests+Assertions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+Assertions.swift"; sourceTree = "<group>"; };
 		E0F6BA0D282BC210005CFABD /* FeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoader.swift; sourceTree = "<group>"; };
+		E0F6BA0F282BC274005CFABD /* FeedRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRefreshViewController.swift; sourceTree = "<group>"; };
 		E0F95A5027E8F3DB000A2C16 /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0F95A5227E8F3DB000A2C16 /* EssentialFeedMacFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EssentialFeedMacFramework.h; sourceTree = "<group>"; };
 		E0F95A5327E8F3DB000A2C16 /* EssentialFeedMacFramework.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = EssentialFeedMacFramework.docc; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				E07E590B27FD964D0094AF29 /* FeedViewController.swift */,
+				E0F6BA0F282BC274005CFABD /* FeedRefreshViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -736,6 +739,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0F6BA0E282BC210005CFABD /* FeedImageDataLoader.swift in Sources */,
+				E0F6BA10282BC274005CFABD /* FeedRefreshViewController.swift in Sources */,
 				E0992F4A28141305000F4FC3 /* UIView+Shimmering.swift in Sources */,
 				E07E590C27FD964D0094AF29 /* FeedViewController.swift in Sources */,
 				E0992F482813D537000F4FC3 /* FeedImageCell.swift in Sources */,
