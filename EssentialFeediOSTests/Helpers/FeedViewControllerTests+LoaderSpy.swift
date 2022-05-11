@@ -1,5 +1,5 @@
 //
-//  FeedViewController+LoaderSpy.swift
+//  FeedViewControllerTests+LoaderSpy.swift
 //  EssentialFeediOSTests
 //
 //  Created by Viral on 11/05/22.
