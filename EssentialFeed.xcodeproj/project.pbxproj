@@ -38,7 +38,6 @@
 		E0014A8E27E90222005D708A /* CoreDataFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A7031927A955070012237F /* CoreDataFeedStoreTests.swift */; };
 		E0014A8F27E90222005D708A /* LoadFeedFromRemoteUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DDF03927574903007F97B0 /* LoadFeedFromRemoteUseCaseTests.swift */; };
 		E0014A9027E90222005D708A /* URLSessionHTTPClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0614CD827708A2700546A3D /* URLSessionHTTPClientTest.swift */; };
-		E0024647282F884900564CCF /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0024646282F884900564CCF /* FeedViewModel.swift */; };
 		E0024649282F98D900564CCF /* FeedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0024648282F98D900564CCF /* FeedImageViewModel.swift */; };
 		E00CDCC527F99F4C006798B6 /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00CDCC427F99F4C006798B6 /* FeedViewControllerTests.swift */; };
 		E00CDCC727F9B213006798B6 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F95A5027E8F3DB000A2C16 /* EssentialFeed.framework */; };
@@ -112,7 +111,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E0024646282F884900564CCF /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		E0024648282F98D900564CCF /* FeedImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageViewModel.swift; sourceTree = "<group>"; };
 		E00CDCC427F99F4C006798B6 /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
 		E01353EB2781901B00712A80 /* CacheFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFeedUseCaseTests.swift; sourceTree = "<group>"; };
@@ -228,7 +226,6 @@
 		E0024645282F883000564CCF /* Feed Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				E0024646282F884900564CCF /* FeedViewModel.swift */,
 				E0024648282F98D900564CCF /* FeedImageViewModel.swift */,
 				E01966B72833E24A007967DD /* FeedPresenter.swift */,
 			);
@@ -777,7 +774,6 @@
 				E0992F482813D537000F4FC3 /* FeedImageCell.swift in Sources */,
 				E0024649282F98D900564CCF /* FeedImageViewModel.swift in Sources */,
 				E0F6BA12282C2EA4005CFABD /* FeedImageCellController.swift in Sources */,
-				E0024647282F884900564CCF /* FeedViewModel.swift in Sources */,
 				E0F6BA15282C345E005CFABD /* FeedUIComposer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
