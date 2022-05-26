@@ -77,6 +77,9 @@ Location</string>
                                                             <state key="normal" title="↻">
                                                                 <color key="titleColor" systemColor="systemBackgroundColor"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="retryButtonTapped" destination="dp3-Ro-ued" eventType="touchUpInside" id="1IE-4O-hlD"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.89019607840000003" green="0.89019607840000003" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -114,6 +117,14 @@ Location</string>
                                         <constraint firstAttribute="bottomMargin" secondItem="Jac-Bb-coQ" secondAttribute="bottom" priority="999" constant="6" id="jCs-4L-WUc"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="yTp-xQ-SEq" id="reZ-R9-ZAG"/>
+                                    <outlet property="feedImageContainer" destination="yj3-PT-KzQ" id="9Io-Hz-HsU"/>
+                                    <outlet property="feedImageRetryButton" destination="mLt-rS-0lZ" id="MRX-79-DWk"/>
+                                    <outlet property="feedImageView" destination="sfE-5P-Kxr" id="SOw-D2-235"/>
+                                    <outlet property="locationContainer" destination="rNE-LZ-Hgz" id="63S-LW-v83"/>
+                                    <outlet property="locationLabel" destination="nUs-hf-lMb" id="Mcr-sE-bNo"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
