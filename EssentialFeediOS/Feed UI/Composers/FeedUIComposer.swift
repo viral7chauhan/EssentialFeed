@@ -41,27 +41,6 @@ private extension FeedUIComposer {
     }
 }
 
-
-private final class WeakRefVirualProxy<T: AnyObject> {
-    private weak var object: T?
-
-    init(_ object: T) {
-        self.object = object
-    }
-}
-
-extension WeakRefVirualProxy: FeedLoadingView where T: FeedLoadingView {
-    func display(_ viewModel: FeedLoadingViewModel) {
-        object?.display(viewModel)
-    }
-}
-
-extension WeakRefVirualProxy: FeedImageView where T: FeedImageView, T.Image == UIImage {
-    func display(_ model: FeedImageViewModel<UIImage>) {
-        object?.display(model)
-    }
-}
-
 private final class FeedViewAdapter: FeedView {
     private weak var controller: FeedViewController?
     private let loader: FeedImageDataLoader
