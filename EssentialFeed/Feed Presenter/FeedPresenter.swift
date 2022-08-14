@@ -7,18 +7,6 @@
 
 import Foundation
 
-public struct FeedErrorViewModel {
-    public var message: String?
-
-    static var noError: FeedErrorViewModel {
-        return FeedErrorViewModel(message: nil)
-    }
-
-    static func error(message: String) -> FeedErrorViewModel {
-        return FeedErrorViewModel(message: message)
-    }
-}
-
 
 public struct FeedLoadingViewModel {
     public let isLoading: Bool
@@ -60,7 +48,7 @@ public final class FeedPresenter {
             bundle: Bundle(for: FeedPresenter.self),
             comment: "Error message displayed when we can't load the image feed from the server")
     }
-    
+
     public static var title: String {
         return NSLocalizedString("FEED_VIEW_TITLE",
                                  tableName: "Feed",
