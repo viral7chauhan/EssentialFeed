@@ -24,7 +24,7 @@ public final class FeedPresenter {
     private var loadingView: FeedLoadingView
     private var feedView: FeedView
 
-    public init(feedView: FeedView, errorView: FeedErrorView, loadingView: FeedLoadingView) {
+    public init(feedView: FeedView, loadingView: FeedLoadingView, errorView: FeedErrorView) {
         self.errorView = errorView
         self.loadingView = loadingView
         self.feedView = feedView
