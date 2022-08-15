@@ -7,7 +7,7 @@
 
 import EssentialFeed
 
-final class FeedLoaderPresentationAdaapter: FeedViewControllerDelegate {
+final class FeedLoaderPresentationAdapter: FeedViewControllerDelegate {
     private let feedLoader: FeedLoader
     var presenter: FeedPresenter?
 
