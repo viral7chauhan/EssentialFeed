@@ -1,8 +1,8 @@
 //
 //  FeedImageDataLoader.swift
-//  EssentialFeediOS
+//  EssentialFeed
 //
-//  Created by Viral on 11/05/22.
+//  Created by Viral on 16/08/22.
 //
 
 import Foundation
