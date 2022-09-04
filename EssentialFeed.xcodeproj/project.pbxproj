@@ -91,6 +91,7 @@
 		E0F95A5A27E8F3DB000A2C16 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F95A5027E8F3DB000A2C16 /* EssentialFeed.framework */; };
 		E0F95A6027E8F3DB000A2C16 /* EssentialFeedMacFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = E0F95A5227E8F3DB000A2C16 /* EssentialFeedMacFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E0FEB64D28C4C63D00967844 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FEB64C28C4C63D00967844 /* HTTPClientSpy.swift */; };
+		E0FEB64F28C4C86300967844 /* RemoteFeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FEB64E28C4C86300967844 /* RemoteFeedImageDataLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -214,6 +215,7 @@
 		E0F95A5327E8F3DB000A2C16 /* EssentialFeedMacFramework.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = EssentialFeedMacFramework.docc; sourceTree = "<group>"; };
 		E0F95A5927E8F3DB000A2C16 /* EssentialFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FEB64C28C4C63D00967844 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
+		E0FEB64E28C4C86300967844 /* RemoteFeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedImageDataLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -443,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				E0DDF03C27575B7A007F97B0 /* RemoteFeedLoader.swift */,
+				E0FEB64E28C4C86300967844 /* RemoteFeedImageDataLoader.swift */,
 				E0A9AE5C27674A7C00DD706E /* HTTPClient.swift */,
 				E0A9AE5E27674B1600DD706E /* FeedItemsMapper.swift */,
 				E0614CDD27732D2A00546A3D /* URLSessionHTTPClient.swift */,
@@ -888,6 +891,7 @@
 				E0014A8027E90207005D708A /* FeedItemsMapper.swift in Sources */,
 				E0014A8127E90207005D708A /* RemoteFeedItem.swift in Sources */,
 				E00431A528AAC8AA001AC895 /* FeedImageViewModel.swift in Sources */,
+				E0FEB64F28C4C86300967844 /* RemoteFeedImageDataLoader.swift in Sources */,
 				E004319A28A97A7C001AC895 /* FeedErrorViewModel.swift in Sources */,
 				E0F95A5427E8F3DB000A2C16 /* EssentialFeedMacFramework.docc in Sources */,
 				E0014A6E27E900DA005D708A /* URLSessionHTTPClient.swift in Sources */,
