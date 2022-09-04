@@ -29,7 +29,7 @@ class HTTPClientSpy: HTTPClient {
         }
     }
 
-    func completion(with error: Error, at index: Int = 0) {
+    func complete(with error: Error, at index: Int = 0) {
         message[index].completion(.failure(error))
     }
 

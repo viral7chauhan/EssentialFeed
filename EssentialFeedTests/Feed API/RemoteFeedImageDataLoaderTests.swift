@@ -92,7 +92,7 @@ class RemoteFeedImageDataLoaderTests: XCTestCase {
         let clientError = NSError(domain: "a client error", code: 0)
 
         expect(sut, toCompleteWith: .failure(clientError), when: {
-            client.completion(with: clientError, at: 0)
+            client.complete(with: clientError, at: 0)
         })
     }
 
@@ -159,7 +159,7 @@ class RemoteFeedImageDataLoaderTests: XCTestCase {
 
         client.complete(withStatus: 404, data: anyData())
         client.complete(withStatus: 200, data: nonEmptyData)
-        client.completion(with: anyNSError())
+        client.complete(with: anyNSError())
 
         XCTAssertTrue(received.isEmpty, "Expected no received results after cancelling task")
     }
