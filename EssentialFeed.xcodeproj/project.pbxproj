@@ -93,6 +93,7 @@
 		E0FEB64D28C4C63D00967844 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FEB64C28C4C63D00967844 /* HTTPClientSpy.swift */; };
 		E0FEB64F28C4C86300967844 /* RemoteFeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FEB64E28C4C86300967844 /* RemoteFeedImageDataLoader.swift */; };
 		E0FEB65128C5B44200967844 /* HTTPURLResponse+StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FEB65028C5B44200967844 /* HTTPURLResponse+StatusCode.swift */; };
+		E0FEB65328C5BA6900967844 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FEB65228C5BA6900967844 /* URLProtocolStub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,6 +219,7 @@
 		E0FEB64C28C4C63D00967844 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 		E0FEB64E28C4C86300967844 /* RemoteFeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedImageDataLoader.swift; sourceTree = "<group>"; };
 		E0FEB65028C5B44200967844 /* HTTPURLResponse+StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+StatusCode.swift"; sourceTree = "<group>"; };
+		E0FEB65228C5BA6900967844 /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +388,7 @@
 				E0DDF03927574903007F97B0 /* LoadFeedFromRemoteUseCaseTests.swift */,
 				E00431A828AB484F001AC895 /* RemoteFeedImageDataLoaderTests.swift */,
 				E0614CD827708A2700546A3D /* URLSessionHTTPClientTest.swift */,
+				E0FEB65228C5BA6900967844 /* URLProtocolStub.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -907,6 +910,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0014A8227E90222005D708A /* XCTestCase+MemoryTracker.swift in Sources */,
+				E0FEB65328C5BA6900967844 /* URLProtocolStub.swift in Sources */,
 				E0014A8327E90222005D708A /* SharedTestHelper.swift in Sources */,
 				E004318C28A94243001AC895 /* FeedPresenterTests.swift in Sources */,
 				E00431A928AB484F001AC895 /* RemoteFeedImageDataLoaderTests.swift in Sources */,
