@@ -67,7 +67,7 @@
 		E0992F482813D537000F4FC3 /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0992F472813D537000F4FC3 /* FeedImageCell.swift */; };
 		E0992F4A28141305000F4FC3 /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0992F4928141305000F4FC3 /* UIView+Shimmering.swift */; };
 		E0A2D7BB28538E7C00D9077B /* FeedUIIntegrationTests+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A2D7BA28538E7C00D9077B /* FeedUIIntegrationTests+Localization.swift */; };
-		E0B497D828E03E510099BA29 /* LocalFeedImageDataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B497D728E03E510099BA29 /* LocalFeedImageDataLoaderTests.swift */; };
+		E0B497D828E03E510099BA29 /* LoadFeedImageDataFromCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B497D728E03E510099BA29 /* LoadFeedImageDataFromCacheUseCaseTests.swift */; };
 		E0B497DD28E1E7790099BA29 /* FeedImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B497DC28E1E7790099BA29 /* FeedImageDataSource.swift */; };
 		E0B497DF28E1E7CF0099BA29 /* LocalFeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B497DE28E1E7CF0099BA29 /* LocalFeedImageDataLoader.swift */; };
 		E0D0AFED27F1775A004CAEDE /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F95A5027E8F3DB000A2C16 /* EssentialFeed.framework */; platformFilter = ios; };
@@ -188,7 +188,7 @@
 		E0A7032727A9BA140012237F /* ManagedFeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedFeedImage.swift; sourceTree = "<group>"; };
 		E0A9AE5C27674A7C00DD706E /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		E0A9AE5E27674B1600DD706E /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
-		E0B497D728E03E510099BA29 /* LocalFeedImageDataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedImageDataLoaderTests.swift; sourceTree = "<group>"; };
+		E0B497D728E03E510099BA29 /* LoadFeedImageDataFromCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFeedImageDataFromCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		E0B497DC28E1E7790099BA29 /* FeedImageDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataSource.swift; sourceTree = "<group>"; };
 		E0B497DE28E1E7CF0099BA29 /* LocalFeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedImageDataLoader.swift; sourceTree = "<group>"; };
 		E0CC315E2756A9C400CC3E0C /* FeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImage.swift; sourceTree = "<group>"; };
@@ -319,7 +319,7 @@
 				E04E2BF327995CDB0004EFA5 /* ValidateFeedCacheUsecaseTests.swift */,
 				E0F69424278EC17A00EF0C88 /* LocalFeedFromCacheUsecaseTests.swift */,
 				E0A7031927A955070012237F /* CoreDataFeedStoreTests.swift */,
-				E0B497D728E03E510099BA29 /* LocalFeedImageDataLoaderTests.swift */,
+				E0B497D728E03E510099BA29 /* LoadFeedImageDataFromCacheUseCaseTests.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
@@ -930,7 +930,7 @@
 				E0014A8527E90222005D708A /* XCTestCase+FeedStoreSpecs.swift in Sources */,
 				E004319F28A97F92001AC895 /* FeedLocalizationTests.swift in Sources */,
 				E0014A8627E90222005D708A /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift in Sources */,
-				E0B497D828E03E510099BA29 /* LocalFeedImageDataLoaderTests.swift in Sources */,
+				E0B497D828E03E510099BA29 /* LoadFeedImageDataFromCacheUseCaseTests.swift in Sources */,
 				E0FEB64D28C4C63D00967844 /* HTTPClientSpy.swift in Sources */,
 				E0014A8727E90222005D708A /* XCTestCase+FailableInsertFeedStoreSpecs.swift in Sources */,
 				E0014A8827E90222005D708A /* XCTestCase+FailableDeleteFeedStoreSpecs.swift in Sources */,
