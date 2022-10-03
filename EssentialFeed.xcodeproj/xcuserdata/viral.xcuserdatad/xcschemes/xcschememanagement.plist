@@ -7,12 +7,12 @@
 		<key>CI_iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>4</integer>
 		</dict>
 		<key>CI_macOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>3</integer>
 		</dict>
 		<key>EssentialFeed.xcscheme_^#shared#^_</key>
 		<dict>
@@ -27,7 +27,7 @@
 		<key>EssentialFeedCacheIntegrationTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>5</integer>
 		</dict>
 		<key>EssentialFeediOS.xcscheme_^#shared#^_</key>
 		<dict>
@@ -58,6 +58,11 @@
 			<true/>
 		</dict>
 		<key>E0D0AFE827F1775A004CAEDE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E0D0AFF927F177E2004CAEDE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
