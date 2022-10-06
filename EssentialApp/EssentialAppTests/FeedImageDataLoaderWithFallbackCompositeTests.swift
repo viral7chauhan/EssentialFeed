@@ -92,9 +92,6 @@ final class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
     }
 
     // MARK: - Helpers
-    private func anyURL() -> URL {
-        URL(string: "http://a-url.com")!
-    }
 
     private func makeSUT(file: StaticString = #file, line: UInt = #line)
     -> (sut: FeedImageDataLoader, primaryLoader: LoaderSpy, fallbackLoader: LoaderSpy) {
@@ -108,14 +105,6 @@ final class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         trackForMemoryLeaks(fallbackLoader, file: file, line: line)
 
         return (sut, primaryLoader, fallbackLoader)
-    }
-
-    private func anyNSError() -> NSError {
-        return NSError(domain: "any error", code: 0)
-    }
-
-    private func anyData() -> Data {
-        return Data("anyData".utf8)
     }
 
     private func expect(_ sut: FeedImageDataLoader, toCompleteWith expectedResult: FeedImageDataLoader.Result,
