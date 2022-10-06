@@ -7,38 +7,7 @@
 
 import XCTest
 import EssentialFeed
-
-class FeedImageDataLoaderWithFallbackComposite: FeedImageDataLoader {
-    let primaryLoader: FeedImageDataLoader
-    let fallbackLoader: FeedImageDataLoader
-
-    private class TaskWrapper: FeedImageDataLoaderTask {
-        var wrapper: FeedImageDataLoaderTask?
-        func cancel() {
-            wrapper?.cancel()
-        }
-    }
-
-    init(primaryLoader: FeedImageDataLoader, fallbackLoader: FeedImageDataLoader) {
-        self.primaryLoader = primaryLoader
-        self.fallbackLoader = fallbackLoader
-    }
-
-    func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
-        let task = TaskWrapper()
-        task.wrapper = primaryLoader.loadImageData(from: url) { [weak self] result in
-            switch result {
-                case .success:
-                    completion(result)
-
-                case .failure:
-                    task.wrapper = self?.fallbackLoader.loadImageData(from: url,
-                                                                      completion: completion)
-            }
-        }
-        return task
-    }
-}
+import EssentialApp
 
 final class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
 
