@@ -40,10 +40,6 @@ class FeedLoaderCacheDecoratorTests: XCTestCase {
 
     // MARK: - Helpers
 
-    private func uniqueFeed() -> [FeedImage] {
-        [FeedImage(id: UUID(), description: nil, location: nil, url: URL(string: "http://any-url.com")!)]
-    }
-
     private func expect(_ sut: FeedLoader, toCompleteWith expectedResult: FeedLoader.Result,
                         file: StaticString = #file, line: UInt = #line) {
         let exp = expectation(description: "Wait to load completion")
