@@ -25,11 +25,17 @@ class FeedAcceptanceTests: XCTestCase {
         onlineFeed.simulateFeedImageVisible(at: 0)
         onlineFeed.simulateFeedImageVisible(at: 1)
 
-        let offlineFeed = launch(store: sharedStore)
+        let offlineFeed = launch(httpClient: .offline, store: sharedStore)
 
         XCTAssertEqual(offlineFeed.numberOfRenderedFeedImageViews(), 2)
         XCTAssertEqual(offlineFeed.renderedFeedImageData(at: 0), makeImageData())
         XCTAssertEqual(offlineFeed.renderedFeedImageData(at: 1), makeImageData())
+    }
+
+    func test_onLaunch_displaysEmptyFeedWhenCustomerHasNoConnectivityAndNoCache() {
+        let feed = launch(httpClient: .offline, store: .empty)
+
+        XCTAssertEqual(feed.numberOfRenderedFeedImageViews(), 0)
     }
     // MARK: - Helpers
 
@@ -37,8 +43,6 @@ class FeedAcceptanceTests: XCTestCase {
         httpClient: HTTPClientStub = .offline,
         store: InMemoryFeedStore = .empty)
     -> FeedViewController {
-        let store = InMemoryFeedStore.empty
-        let httpClient = HTTPClientStub.online(response)
         let sut = SceneDelegate(httpClient: httpClient, store: store)
         sut.window = UIWindow()
         sut.configureWindow()
