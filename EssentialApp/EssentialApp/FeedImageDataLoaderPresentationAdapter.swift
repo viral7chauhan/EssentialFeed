@@ -5,7 +5,7 @@
 //  Created by Viral on 20/06/22.
 //
 
-import Foundation
+import EssentialFeediOS
 import EssentialFeed
 
 final class FeedImageDataLoaderPresentationAdapter<View: FeedImageView, Image>:

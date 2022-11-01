@@ -5,7 +5,7 @@
 //  Created by Viral on 11/05/22.
 //
 
-import Foundation
+import EssentialFeediOS
 import EssentialFeed
 import UIKit
 
