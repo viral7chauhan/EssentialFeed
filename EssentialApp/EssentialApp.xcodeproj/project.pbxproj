@@ -37,6 +37,7 @@
 		E046F86C2911100A00C2EDA7 /* FeedUIIntegrationTests+LoaderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046F8612911100900C2EDA7 /* FeedUIIntegrationTests+LoaderSpy.swift */; };
 		E046F86E2911126500C2EDA7 /* FeedUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046F86D2911126500C2EDA7 /* FeedUIIntegrationTests.swift */; };
 		E046F89529119C5600C2EDA7 /* FeedAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046F89429119C5600C2EDA7 /* FeedAcceptanceTests.swift */; };
+		E046F8972911AE1600C2EDA7 /* HTTPClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046F8962911AE1600C2EDA7 /* HTTPClientStub.swift */; };
 		E04F39102910410700C9CC29 /* SceneDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04F390F2910410700C9CC29 /* SceneDelegateTests.swift */; };
 		E07E900828ECB958009E78E7 /* FeedLoaderWithFallbackCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07E900728ECB958009E78E7 /* FeedLoaderWithFallbackCompositeTests.swift */; };
 		E07E900A28ECC59B009E78E7 /* FeedLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07E900928ECC59B009E78E7 /* FeedLoaderWithFallbackComposite.swift */; };
@@ -108,6 +109,7 @@
 		E046F8632911100A00C2EDA7 /* FeedImageCell+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedImageCell+TestHelpers.swift"; sourceTree = "<group>"; };
 		E046F86D2911126500C2EDA7 /* FeedUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIIntegrationTests.swift; sourceTree = "<group>"; };
 		E046F89429119C5600C2EDA7 /* FeedAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAcceptanceTests.swift; sourceTree = "<group>"; };
+		E046F8962911AE1600C2EDA7 /* HTTPClientStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientStub.swift; sourceTree = "<group>"; };
 		E04F390F2910410700C9CC29 /* SceneDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateTests.swift; sourceTree = "<group>"; };
 		E07E900728ECB958009E78E7 /* FeedLoaderWithFallbackCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallbackCompositeTests.swift; sourceTree = "<group>"; };
 		E07E900928ECC59B009E78E7 /* FeedLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				E07E901028EEDBD9009E78E7 /* XCTestCase+MemoryLeakTracking.swift */,
 				E043A59128F352DE00D9D619 /* XCTestCase+FeedLoader.swift */,
 				E0BA1B4128FAD00900F1F75B /* XCTestCase+FeedImageDataLoader.swift */,
+				E046F8962911AE1600C2EDA7 /* HTTPClientStub.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				E043A58E28F34C3000D9D619 /* FeedLoaderCacheDecoratorTests.swift in Sources */,
 				E0BA1B4028FA0F6E00F1F75B /* FeedImageDataLoaderSpy.swift in Sources */,
 				E07E900C28ED2331009E78E7 /* FeedImageDataLoaderWithFallbackCompositeTests.swift in Sources */,
+				E046F8972911AE1600C2EDA7 /* HTTPClientStub.swift in Sources */,
 				E046F86A2911100A00C2EDA7 /* FeedImageCell+TestHelpers.swift in Sources */,
 				E07E900828ECB958009E78E7 /* FeedLoaderWithFallbackCompositeTests.swift in Sources */,
 				E043A59028F3520B00D9D619 /* FeedLoaderStub.swift in Sources */,
