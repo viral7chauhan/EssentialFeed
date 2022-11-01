@@ -29,6 +29,10 @@ extension FeedViewController {
         return view
     }
 
+    func renderedFeedImageData(at index: Int) -> Data? {
+        return simulateFeedImageVisible(at: index)?.renderedImage
+    }
+
     var errorMessage: String? {
         return errorView?.message
     }
@@ -46,6 +50,9 @@ extension FeedViewController {
     }
 
     func feedImageView(at row: Int) -> UITableViewCell? {
+        guard numberOfRenderedFeedImageViews() > row else {
+            return nil
+        }
         let source = tableView.dataSource
         let indexPath = IndexPath(row: row, section: feedImageSection)
         return source?.tableView(tableView, cellForRowAt: indexPath)
