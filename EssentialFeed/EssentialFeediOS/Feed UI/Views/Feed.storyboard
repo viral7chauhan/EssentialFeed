@@ -20,7 +20,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vea-3z-JA3">
-                                    <rect key="frame" x="165.5" y="8" width="83.5" height="20.5"/>
+                                    <rect key="frame" x="8" y="4" width="398" height="28"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -28,8 +28,10 @@
                             </subviews>
                             <color key="backgroundColor" red="0.8983610115870081" green="0.42644578133725403" blue="0.38964749097742607" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
-                                <constraint firstItem="vea-3z-JA3" firstAttribute="centerY" secondItem="0he-44-f0g" secondAttribute="centerY" id="WuP-E7-nGJ"/>
-                                <constraint firstItem="vea-3z-JA3" firstAttribute="centerX" secondItem="0he-44-f0g" secondAttribute="centerX" id="y0Z-Ex-fQQ"/>
+                                <constraint firstAttribute="bottom" secondItem="vea-3z-JA3" secondAttribute="bottom" constant="4" id="1Fg-Y1-L8W"/>
+                                <constraint firstAttribute="trailing" secondItem="vea-3z-JA3" secondAttribute="trailing" constant="8" id="7Xn-B0-jzA"/>
+                                <constraint firstItem="vea-3z-JA3" firstAttribute="leading" secondItem="0he-44-f0g" secondAttribute="leading" constant="8" id="KTQ-AG-6X9"/>
+                                <constraint firstItem="vea-3z-JA3" firstAttribute="top" secondItem="0he-44-f0g" secondAttribute="top" constant="4" id="VLb-RC-Yvv"/>
                             </constraints>
                             <connections>
                                 <outlet property="label" destination="vea-3z-JA3" id="SCj-Ek-VgD"/>
