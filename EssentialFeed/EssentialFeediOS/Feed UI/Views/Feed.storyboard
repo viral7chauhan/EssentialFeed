@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SVZ-jg-cM4">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -40,7 +40,6 @@
                         <view key="tableFooterView" contentMode="scaleToFill" id="BGx-D8-9nb">
                             <rect key="frame" x="0.0" y="664" width="414" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="550" id="dp3-Ro-ued" customClass="FeedImageCell" customModule="EssentialFeediOS" customModuleProvider="target">
@@ -63,7 +62,6 @@
                                                                     <rect key="frame" x="0.0" y="4" width="10" height="14"/>
                                                                 </imageView>
                                                             </subviews>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstItem="mjS-WU-d9D" firstAttribute="top" secondItem="LRv-mP-C8Z" secondAttribute="top" constant="4" id="A4D-aU-anb"/>
                                                                 <constraint firstItem="mjS-WU-d9D" firstAttribute="leading" secondItem="LRv-mP-C8Z" secondAttribute="leading" id="BYB-IF-gd0"/>
@@ -75,7 +73,7 @@
                                                             <string key="text">Location,
 Location</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" systemColor="secondaryLabelColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -87,10 +85,9 @@ Location</string>
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="374"/>
                                                             <accessibility key="accessibilityConfiguration" identifier="feed-image-view"/>
                                                         </imageView>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLt-rS-0lZ">
-                                                            <rect key="frame" x="169" y="171" width="36" height="31"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLt-rS-0lZ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="374"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" title="↻">
                                                                 <color key="titleColor" systemColor="systemBackgroundColor"/>
@@ -100,13 +97,17 @@ Location</string>
                                                             </connections>
                                                         </button>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.89019607840000003" green="0.89019607840000003" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="sfE-5P-Kxr" secondAttribute="bottom" id="1K6-Fs-3yV"/>
                                                         <constraint firstItem="sfE-5P-Kxr" firstAttribute="leading" secondItem="yj3-PT-KzQ" secondAttribute="leading" id="C30-86-Q2q"/>
                                                         <constraint firstItem="sfE-5P-Kxr" firstAttribute="top" secondItem="yj3-PT-KzQ" secondAttribute="top" id="F6c-5c-HqY"/>
                                                         <constraint firstAttribute="trailing" secondItem="sfE-5P-Kxr" secondAttribute="trailing" id="FZB-CV-Uga"/>
+                                                        <constraint firstItem="mLt-rS-0lZ" firstAttribute="top" secondItem="yj3-PT-KzQ" secondAttribute="top" id="SID-XK-emi"/>
+                                                        <constraint firstAttribute="trailing" secondItem="mLt-rS-0lZ" secondAttribute="trailing" id="dRo-zA-nU1"/>
+                                                        <constraint firstAttribute="bottom" secondItem="mLt-rS-0lZ" secondAttribute="bottom" id="nHY-sW-sHy"/>
                                                         <constraint firstAttribute="width" secondItem="yj3-PT-KzQ" secondAttribute="height" multiplier="1:1" id="pgF-Yi-cXu"/>
+                                                        <constraint firstItem="mLt-rS-0lZ" firstAttribute="leading" secondItem="yj3-PT-KzQ" secondAttribute="leading" id="sw4-nU-7fo"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -118,7 +119,7 @@ Location</string>
                                                     <rect key="frame" x="0.0" y="439.5" width="349" height="76.5"/>
                                                     <string key="text">Description Description Description Description Description Description Description Description Description Description Description Description Description Description</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -175,6 +176,12 @@ Location</string>
     </scenes>
     <resources>
         <image name="pin" width="10" height="14"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
