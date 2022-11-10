@@ -7,6 +7,7 @@
 
 import XCTest
 import EssentialFeediOS
+@testable import EssentialFeedPresenter
 @testable import EssentialFeed
 
 final class FeedSnapshotTests: XCTestCase {

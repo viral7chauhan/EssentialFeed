@@ -7,6 +7,7 @@
 
 import UIKit
 import EssentialFeed
+import EssentialFeedPresenter
 
 final class WeakRefVirualProxy<T: AnyObject> {
     private weak var object: T?

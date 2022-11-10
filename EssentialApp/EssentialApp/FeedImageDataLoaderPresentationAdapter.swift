@@ -7,6 +7,7 @@
 
 import EssentialFeediOS
 import EssentialFeed
+import EssentialFeedPresenter
 
 final class FeedImageDataLoaderPresentationAdapter<View: FeedImageView, Image>:
     FeedImageCellControllerDelegate where View.Image == Image {

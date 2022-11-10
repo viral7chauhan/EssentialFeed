@@ -8,6 +8,7 @@
 import UIKit
 import EssentialFeed
 import EssentialFeediOS
+import EssentialFeedPresenter
 
 final class FeedViewAdapter: FeedView {
     private weak var controller: FeedViewController?
