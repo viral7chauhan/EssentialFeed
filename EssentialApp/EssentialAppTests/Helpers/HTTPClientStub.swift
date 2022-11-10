@@ -5,7 +5,7 @@
 //  Created by Viral on 02/11/22.
 //
 
-import EssentialFeed
+import EssentialFeedAPI
 import Foundation
 
 class HTTPClientStub: HTTPClient {

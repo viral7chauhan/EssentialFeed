@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import EssentialFeed
+import EssentialFeedAPI
 
 class URLSessionHTTPClientTest: XCTestCase {
 
