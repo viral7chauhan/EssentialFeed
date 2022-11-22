@@ -38,6 +38,7 @@
 		E07E901128EEDBD9009E78E7 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07E901028EEDBD9009E78E7 /* XCTestCase+MemoryLeakTracking.swift */; };
 		E07E901328EEDC3A009E78E7 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07E901228EEDC3A009E78E7 /* SharedTestHelpers.swift */; };
 		E0AE9D93291C4F1800455374 /* UIView+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE9D92291C4F1800455374 /* UIView+TestHelpers.swift */; };
+		E0E3DE2D292D38C0002A3B1B /* CombineHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E3DE2C292D38C0002A3B1B /* CombineHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		E07E901028EEDBD9009E78E7 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		E07E901228EEDC3A009E78E7 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		E0AE9D92291C4F1800455374 /* UIView+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+TestHelpers.swift"; sourceTree = "<group>"; };
+		E0E3DE2C292D38C0002A3B1B /* CombineHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				E046F85429110F4800C2EDA7 /* FeedLoaderPresentationAdapter.swift */,
 				E046F84F29110F4700C2EDA7 /* FeedViewAdapter.swift */,
 				E0149F4028EB7AD700081952 /* AppDelegate.swift */,
+				E0E3DE2C292D38C0002A3B1B /* CombineHelpers.swift */,
 				E0149F4228EB7AD700081952 /* SceneDelegate.swift */,
 				E0149F4428EB7AD700081952 /* ViewController.swift */,
 				E0149F4928EB7AD800081952 /* Assets.xcassets */,
@@ -302,6 +305,7 @@
 			files = (
 				E0149F4528EB7AD700081952 /* ViewController.swift in Sources */,
 				E046F85529110F4800C2EDA7 /* FeedUIComposer.swift in Sources */,
+				E0E3DE2D292D38C0002A3B1B /* CombineHelpers.swift in Sources */,
 				E046F85629110F4800C2EDA7 /* FeedImageDataLoaderPresentationAdapter.swift in Sources */,
 				E0149F4128EB7AD700081952 /* AppDelegate.swift in Sources */,
 				E046F85829110F4800C2EDA7 /* FeedLoaderPresentationAdapter.swift in Sources */,
