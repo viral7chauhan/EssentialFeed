@@ -8,8 +8,6 @@
 import UIKit
 import CoreData
 import EssentialFeed
-import EssentialFeediOS
-import CoreData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -29,6 +27,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         LocalFeedLoader(store: store, currentDate: Date.init)
     }()
 
+    private let url = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!
+
+    private lazy var remoteFeedLoader = RemoteFeedLoader(url: url, client: httpClient)
+
     convenience init(httpClient: HTTPClient, store: FeedStore & FeedImageDataStore) {
         self.init()
         self.httpClient = httpClient
@@ -43,25 +45,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func configureWindow() {
-        let url = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!
-
-        let remoteFeedLoader = RemoteFeedLoader(url: url, client: httpClient)
-        let remoteImageLoader = RemoteFeedImageDataLoader(client: httpClient)
-
-        let localImageLoader = LocalFeedImageDataLoader(store: store)
-
         window?.rootViewController = UINavigationController(
             rootViewController: FeedUIComposer.feedComposeWith(
-                feedLoader: FeedLoaderWithFallbackComposite(
-                    primaryLoader: FeedLoaderCacheDecorator(
-                        decoratee: remoteFeedLoader,
-                        cache: localFeedLoader),
-                    fallbackLoader: localFeedLoader),
-                imageLoader: FeedImageDataLoaderWithFallbackComposite(
-                    primaryLoader: localImageLoader,
-                    fallbackLoader: FeedImageDataLoaderCacheDecorator(
-                        decoratee: remoteImageLoader,
-                        cache: localImageLoader))))
+                feedLoader: makeRemoteFeedLoaderWithLocalFallback,
+                imageLoader: makeLocalImgeLoaderWithRemoteFallback))
 
         window?.makeKeyAndVisible()
     }
@@ -69,5 +56,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillResignActive(_ scene: UIScene) {
         localFeedLoader.validateCache {_ in } 
     }
-}
 
+    private func makeRemoteFeedLoaderWithLocalFallback() -> FeedLoader.Publisher {
+        return remoteFeedLoader
+            .loadPublisher()
+            .caching(to: localFeedLoader)
+            .fallback(to: localFeedLoader.loadPublisher)
+    }
+
+    private func makeLocalImgeLoaderWithRemoteFallback(url: URL) -> FeedImageDataLoader.Publisher {
+        let remoteImageLoader = RemoteFeedImageDataLoader(client: httpClient)
+        let localImageLoader = LocalFeedImageDataLoader(store: store)
+
+        return localImageLoader
+            .loadImageDataPublisher(from: url)
+            .fallback(to: {
+                remoteImageLoader
+                    .loadImageDataPublisher(from: url)
+                    .caching(to: localImageLoader, using: url)
+            })
+    }
+}
