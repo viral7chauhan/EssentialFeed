@@ -30,6 +30,13 @@ class FeedItemsMapperTests: XCTestCase {
         )
     }
 
+    func test_map_deliversNoItemsOn2xxHTTPResponseWithEmptyJsonList() throws {
+        let emptyListJson = makeItemJson([])
+
+        let result = try FeedItemsMapper.map(emptyListJson, response: HTTPURLResponse(statusCode: 200))
+        XCTAssertEqual(result, [])
+    }
+
     func test_load_deliversItemsOn200HTTPResponseWithJsonItems() throws {
 
         let item1 = makeItem(id: UUID(),
