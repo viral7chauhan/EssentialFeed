@@ -30,6 +30,10 @@ public final class ImageCommentsMapper {
         }
     }
 
+    public enum Error: Swift.Error {
+        case invalidData
+    }
+
     public static func map(_ data: Data,
                            response: HTTPURLResponse) throws -> [ImageComment] {
         let decoder = JSONDecoder()
@@ -37,7 +41,7 @@ public final class ImageCommentsMapper {
 
         guard isOK(response),
               let root = try? decoder.decode(Root.self, from: data) else {
-            throw RemoteImageCommentLoader.Error.invalidData
+            throw Error.invalidData
         }
 
         return root.comments

@@ -182,7 +182,6 @@ class FeedUIIntegrationTests: XCTestCase {
 
         let imageData0 = UIImage.make(withColor: .red).pngData()!
         loader.completeImageLoading(with: imageData0, at: 0)
-
         XCTAssertEqual(view0?.renderedImage, imageData0, "Expected image for first view once first image loading completed successfully.")
         XCTAssertEqual(view1?.renderedImage, .none, "Expected no image state change for second view once first image loading completed successfully")
 
