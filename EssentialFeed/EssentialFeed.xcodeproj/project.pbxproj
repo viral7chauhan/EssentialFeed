@@ -417,7 +417,6 @@
 		E0A9AE602767575F00DD706E /* Feed API */ = {
 			isa = PBXGroup;
 			children = (
-				E06C70FD29323564002A64CE /* LoadImageCommentsFromRemoteUseCaseTests.swift */,
 				E0DDF03927574903007F97B0 /* LoadFeedFromRemoteUseCaseTests.swift */,
 				E00431A828AB484F001AC895 /* LoadFeedImageDataFromRemoteUseCaseTests.swift */,
 			);
@@ -471,6 +470,23 @@
 				E0FEB65228C5BA6900967844 /* URLProtocolStub.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E0B8092B29334F5A00597E22 /* Image Comment API */ = {
+			isa = PBXGroup;
+			children = (
+				E06C7100293236CD002A64CE /* RemoteImageCommentLoader.swift */,
+				E06C710229323705002A64CE /* ImageCommentsMapper.swift */,
+			);
+			path = "Image Comment API";
+			sourceTree = "<group>";
+		};
+		E0B8092C29334FA400597E22 /* Image Comment API */ = {
+			isa = PBXGroup;
+			children = (
+				E06C70FD29323564002A64CE /* LoadImageCommentsFromRemoteUseCaseTests.swift */,
+			);
+			path = "Image Comment API";
 			sourceTree = "<group>";
 		};
 		E0CC31432756A9A900CC3E0C = {
@@ -531,8 +547,6 @@
 		E0DDF03B27575B6A007F97B0 /* Feed API */ = {
 			isa = PBXGroup;
 			children = (
-				E06C7100293236CD002A64CE /* RemoteImageCommentLoader.swift */,
-				E06C710229323705002A64CE /* ImageCommentsMapper.swift */,
 				E0DDF03C27575B7A007F97B0 /* RemoteFeedLoader.swift */,
 				E0FEB64E28C4C86300967844 /* RemoteFeedImageDataLoader.swift */,
 				E0A9AE5E27674B1600DD706E /* FeedItemsMapper.swift */,
@@ -604,6 +618,7 @@
 			children = (
 				E0B8092629334DB000597E22 /* Shared API */,
 				E0B8092529334D9900597E22 /* Shared API Infra */,
+				E0B8092B29334F5A00597E22 /* Image Comment API */,
 				E06C70FF2932368B002A64CE /* Image comment feature */,
 				E0CC31622756AACA00CC3E0C /* Feed Feature */,
 				E01DA2BE2788B6F700658519 /* Feed Cache */,
@@ -618,6 +633,7 @@
 		E0F95A5D27E8F3DB000A2C16 /* EssentialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
+				E0B8092C29334FA400597E22 /* Image Comment API */,
 				E0B8092829334EB000597E22 /* Shared API */,
 				E0B8092729334E7A00597E22 /* Shared API Infra */,
 				E0614CDA2771EF7B00546A3D /* Helper */,
