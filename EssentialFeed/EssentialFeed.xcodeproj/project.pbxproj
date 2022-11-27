@@ -91,7 +91,6 @@
 		E0F95A5427E8F3DB000A2C16 /* EssentialFeedMacFramework.docc in Sources */ = {isa = PBXBuildFile; fileRef = E0F95A5327E8F3DB000A2C16 /* EssentialFeedMacFramework.docc */; };
 		E0F95A5A27E8F3DB000A2C16 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F95A5027E8F3DB000A2C16 /* EssentialFeed.framework */; };
 		E0F95A6027E8F3DB000A2C16 /* EssentialFeedMacFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = E0F95A5227E8F3DB000A2C16 /* EssentialFeedMacFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E0FEB64D28C4C63D00967844 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FEB64C28C4C63D00967844 /* HTTPClientSpy.swift */; };
 		E0FEB65328C5BA6900967844 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FEB65228C5BA6900967844 /* URLProtocolStub.swift */; };
 /* End PBXBuildFile section */
 
@@ -217,7 +216,6 @@
 		E0F95A5227E8F3DB000A2C16 /* EssentialFeedMacFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EssentialFeedMacFramework.h; sourceTree = "<group>"; };
 		E0F95A5327E8F3DB000A2C16 /* EssentialFeedMacFramework.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = EssentialFeedMacFramework.docc; sourceTree = "<group>"; };
 		E0F95A5927E8F3DB000A2C16 /* EssentialFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E0FEB64C28C4C63D00967844 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 		E0FEB65228C5BA6900967844 /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -440,22 +438,6 @@
 			path = "Shared API Infra";
 			sourceTree = "<group>";
 		};
-		E0B8092829334EB000597E22 /* Shared API */ = {
-			isa = PBXGroup;
-			children = (
-				E0B8092929334EBB00597E22 /* Helpers */,
-			);
-			path = "Shared API";
-			sourceTree = "<group>";
-		};
-		E0B8092929334EBB00597E22 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				E0FEB64C28C4C63D00967844 /* HTTPClientSpy.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		E0B8092A29334EEF00597E22 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -622,7 +604,6 @@
 			isa = PBXGroup;
 			children = (
 				E0B8092C29334FA400597E22 /* Image Comment API */,
-				E0B8092829334EB000597E22 /* Shared API */,
 				E0B8092729334E7A00597E22 /* Shared API Infra */,
 				E0614CDA2771EF7B00546A3D /* Helper */,
 				E01353EA27818FFC00712A80 /* Feed Cache */,
@@ -969,7 +950,6 @@
 				E004319F28A97F92001AC895 /* FeedLocalizationTests.swift in Sources */,
 				E0014A8627E90222005D708A /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift in Sources */,
 				E0B497D828E03E510099BA29 /* LoadFeedImageDataFromCacheUseCaseTests.swift in Sources */,
-				E0FEB64D28C4C63D00967844 /* HTTPClientSpy.swift in Sources */,
 				E0014A8727E90222005D708A /* XCTestCase+FailableInsertFeedStoreSpecs.swift in Sources */,
 				E0014A8827E90222005D708A /* XCTestCase+FailableDeleteFeedStoreSpecs.swift in Sources */,
 				E0014A8927E90222005D708A /* FeedStoreSpy.swift in Sources */,
