@@ -27,7 +27,7 @@ final class LoadResourcePresenterTests: XCTestCase {
         ])
     }
 
-    func test_didFinishLoadingResource_displaysFeedAndStopLoading() {
+    func test_didFinishLoadingResource_displaysResourceAndStopLoading() {
         let (sut, view) = makeSUT(mapper: { resource in
             resource + " view model"
         })
