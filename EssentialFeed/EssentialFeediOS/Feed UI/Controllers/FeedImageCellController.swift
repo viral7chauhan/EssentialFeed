@@ -10,7 +10,7 @@ import EssentialFeed
 
 public protocol FeedImageCellControllerDelegate {
     func didRequestImage()
-    func didCancelImageReques()
+    func didCancelImageRequest()
 }
 
 public final class FeedImageCellController: ResourceView, ResourceLoadingView, ResourceErrorView {
@@ -44,7 +44,7 @@ public final class FeedImageCellController: ResourceView, ResourceLoadingView, R
 
     func cancelLoad() {
         releaseCellForReuse()
-        delegate.didCancelImageReques()
+        delegate.didCancelImageRequest()
     }
     
     public func display(_ viewModel: ResourceLoadingViewModel) {

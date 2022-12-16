@@ -47,7 +47,7 @@ extension LoadResourcePresentationAdapter: FeedImageCellControllerDelegate {
         loadResource()
     }
 
-    func didCancelImageReques() {
+    func didCancelImageRequest() {
         cancellable?.cancel()
         cancellable = nil
     }

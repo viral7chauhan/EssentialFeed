@@ -122,5 +122,5 @@ private class ImageStub: FeedImageCellControllerDelegate {
         }
     }
 
-    func didCancelImageReques() {}
+    func didCancelImageRequest() {}
 }
