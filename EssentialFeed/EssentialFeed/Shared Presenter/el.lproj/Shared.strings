@@ -1,0 +1,10 @@
+/* 
+  Shared.strings
+  EssentialFeed
+
+  Created by Viral on 16/12/22.
+  
+*/
+
+
+"GENERIC_CONNECTION_ERROR" = "Δεν ήταν δυνατή η σύνδεση στο διακομιστή";
