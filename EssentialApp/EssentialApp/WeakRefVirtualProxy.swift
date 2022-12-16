@@ -22,14 +22,14 @@ extension WeakRefVirualProxy: ResourceLoadingView where T: ResourceLoadingView {
     }
 }
 
-extension WeakRefVirualProxy: FeedImageView where T: FeedImageView, T.Image == UIImage {
-    func display(_ model: FeedImageViewModel<UIImage>) {
-        object?.display(model)
-    }
-}
-
 extension WeakRefVirualProxy: ResourceErrorView where T: ResourceErrorView {
     func display(_ viewModel: ResourceErrorViewModel) {
         object?.display(viewModel)
+    }
+}
+
+extension WeakRefVirualProxy: ResourceView where T: ResourceView, T.ResourceViewModel == UIImage {
+    func display(_ model: UIImage) {
+        object?.display(model)
     }
 }
