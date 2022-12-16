@@ -35,11 +35,11 @@ extension Date {
         return self + seconds
     }
 
-    func adding(minutes: Int) -> Date {
-        return Calendar(identifier: .gregorian).date(byAdding: .minute, value: minutes, to: self)!
+    func adding(minutes: Int, calender: Calendar = .init(identifier: .gregorian)) -> Date {
+        return calender.date(byAdding: .minute, value: minutes, to: self)!
     }
 
-    func adding(days: Int) -> Date {
-        return Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
+    func adding(days: Int, calender: Calendar = .init(identifier: .gregorian)) -> Date {
+        return calender.date(byAdding: .day, value: days, to: self)!
     }
 }
