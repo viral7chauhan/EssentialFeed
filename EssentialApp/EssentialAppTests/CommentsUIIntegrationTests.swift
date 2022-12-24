@@ -12,7 +12,7 @@ import EssentialFeed
 import EssentialFeediOS
 import Combine
 
-final class CommentsUIIntegrationTests: FeedUIIntegrationTests {
+final class CommentsUIIntegrationTests: XCTestCase {
 
     func test_commentsView_hasTitle() {
         let (sut, _) = makeSUT()
@@ -109,7 +109,7 @@ final class CommentsUIIntegrationTests: FeedUIIntegrationTests {
         wait(for: [exp], timeout: 2.0)
     }
 
-    override func test_loadFeedCompletion_rendersErrorMessageOnErrorUntilNextReload() {
+    func test_loadCommentCompletion_rendersErrorMessageOnErrorUntilNextReload() {
         let (sut, loader) = makeSUT()
 
         sut.loadViewIfNeeded()
@@ -123,7 +123,7 @@ final class CommentsUIIntegrationTests: FeedUIIntegrationTests {
         XCTAssertNil(sut.errorMessage)
     }
 
-    override func test_tapOnErrorView_hidesErrorMessage() {
+    func test_tapOnErrorView_hidesErrorMessage() {
         let (sut, loader) = makeSUT()
 
         sut.loadViewIfNeeded()
@@ -175,8 +175,8 @@ final class CommentsUIIntegrationTests: FeedUIIntegrationTests {
             return publisher.eraseToAnyPublisher()
         }
 
-        func completeCommentsLoading(with feed: [ImageComment] = [], at index: Int = 0) {
-            requests[index].send(feed)
+        func completeCommentsLoading(with comments: [ImageComment] = [], at index: Int = 0) {
+            requests[index].send(comments)
         }
 
         func completeCommentsLoadingWithError(at index: Int) {
