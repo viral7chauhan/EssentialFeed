@@ -73,7 +73,7 @@ class EssentialFeedAPIEndToEndTests: XCTestCase {
         let client = ephemeralClient()
 
         let exp = expectation(description: "Wait for load completion")
-        let url = feedTestServerURL.appendingPathComponent("73A7F70C-75DA-4C2E-B5A3-EED40DC53AA6/image")
+        let url = feedTestServerURL.appendingComponent("73A7F70C-75DA-4C2E-B5A3-EED40DC53AA6/image")
 
         var receivedResult: FeedImageDataLoader.Result?
 
@@ -152,5 +152,15 @@ class EssentialFeedAPIEndToEndTests: XCTestCase {
 
     private var feedTestServerURL: URL {
         return URL(string: "https://essentialdeveloper.com/feed-case-study/test-api/feed")!
+    }
+}
+
+extension URL {
+    func appendingComponent(_ path: String) -> URL {
+        if #available(macOS 13.0, *) {
+            return appending(path: path)
+        } else {
+            return appendingPathComponent(path)
+        }
     }
 }

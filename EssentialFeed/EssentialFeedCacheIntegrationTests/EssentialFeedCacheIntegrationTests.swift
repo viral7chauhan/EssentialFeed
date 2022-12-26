@@ -161,7 +161,7 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
     }
 
     private func testSpecificStoreURL() -> URL {
-        return cachesDirectory().appendingPathComponent("\(type(of: self)).store")
+        return cachesDirectory().appendingComponent("\(type(of: self)).store")
     }
 
     private func cachesDirectory() -> URL {
@@ -206,5 +206,15 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
 
     private func deleteStoreArtifacts() {
         try? FileManager.default.removeItem(at: testSpecificStoreURL())
+    }
+}
+
+extension URL {
+    func appendingComponent(_ path: String) -> URL {
+        if #available(macOS 13.0, *) {
+            return appending(path: path)
+        } else {
+            return appendingPathComponent(path)
+        }
     }
 }
