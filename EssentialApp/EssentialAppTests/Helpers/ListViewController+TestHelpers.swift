@@ -1,5 +1,5 @@
 //
-//  FeedViewController+TestHelpers.swift
+//  ListViewController+TestHelpers.swift
 //  EssentialFeediOSTests
 //
 //  Created by Viral on 11/05/22.
@@ -14,7 +14,7 @@ extension ListViewController {
         tableView.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
     }
     
-    func simulateUserInitiatedFeedReload() {
+    func simulateUserInitiatedReload() {
         refreshControl?.simulatorePullToRefresh()
     }
 
@@ -22,6 +22,53 @@ extension ListViewController {
         errorView.simulateTap()
     }
 
+    var errorMessage: String? {
+        errorView.message
+    }
+
+    var isShowLoadingIndicator: Bool {
+        refreshControl?.isRefreshing == true
+    }
+
+    func numberOfRows(in section: Int) -> Int {
+        tableView.numberOfSections > section ? tableView.numberOfRows(inSection: section) : 0
+    }
+
+    private func cell(row: Int, section: Int) -> UITableViewCell? {
+        guard numberOfRows(in: section) > row else {
+            return nil
+        }
+        let ds = tableView.dataSource
+        let indexPath = IndexPath(row: row, section: section)
+        return ds?.tableView(tableView, cellForRowAt: indexPath)
+    }
+}
+
+extension ListViewController {
+    func numberOfRenderedComments() -> Int {
+        numberOfRows(in: commentsSection)
+    }
+
+    func commentMessage(at row: Int) -> String? {
+        commentView(at: row)?.messageLabel.text
+    }
+
+    func commentDate(at row: Int) -> String? {
+        commentView(at: row)?.dateLabel.text
+    }
+
+    func commentUsername(at row: Int) -> String? {
+        commentView(at: row)?.usernameLabel.text
+    }
+
+    private func commentView(at row: Int) -> ImageCommentCell? {
+        cell(row: row, section: commentsSection) as? ImageCommentCell
+    }
+
+    private var commentsSection: Int { 0 }
+}
+
+extension ListViewController {
     @discardableResult
     func simulateFeedImageVisible(at index: Int) -> FeedImageCell? {
         return feedImageView(at: index) as? FeedImageCell
@@ -49,34 +96,24 @@ extension ListViewController {
         return view
     }
 
+    func simulateTapOnFeedImage(at row: Int) {
+        let delegate = tableView.delegate
+        let index = IndexPath(row: row, section: feedImageSection)
+        delegate?.tableView?(tableView, didSelectRowAt: index)
+    }
+
     func renderedFeedImageData(at index: Int) -> Data? {
         return simulateFeedImageVisible(at: index)?.renderedImage
     }
 
-    var errorMessage: String? {
-        return errorView.message
-    }
-    
-    var isShowLoadingIndicator: Bool {
-        refreshControl?.isRefreshing == true
-    }
-
     func numberOfRenderedFeedImageViews() -> Int {
-        tableView.numberOfSections == 0 ? 0 :
-            tableView.numberOfRows(inSection: feedImageSection)
+        numberOfRows(in: feedImageSection)
     }
 
-    private var feedImageSection: Int {
-        return 0
-    }
+    private var feedImageSection: Int { 0 }
 
     func feedImageView(at row: Int) -> UITableViewCell? {
-        guard numberOfRenderedFeedImageViews() > row else {
-            return nil
-        }
-        let source = tableView.dataSource
-        let indexPath = IndexPath(row: row, section: feedImageSection)
-        return source?.tableView(tableView, cellForRowAt: indexPath)
+        cell(row: row, section: feedImageSection)
     }
 
     func simulateFeedImageViewNearVisible(at row: Int) {

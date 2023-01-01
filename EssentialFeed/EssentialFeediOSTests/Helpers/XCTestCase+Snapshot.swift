@@ -19,7 +19,7 @@ extension XCTestCase {
 
         if snapshotData != storedSnapshotData {
             let temporarySnapshotURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
-                .appendingPathComponent(snapshotURL.lastPathComponent)
+                .appendingComponent(snapshotURL.lastPathComponent)
 
             try? snapshotData?.write(to: temporarySnapshotURL)
 
@@ -57,5 +57,15 @@ extension XCTestCase {
             return nil
         }
         return data
+    }
+}
+
+extension URL {
+    func appendingComponent(_ path: String) -> URL {
+        if #available(macOS 13.0, *) {
+            return appending(path: path)
+        } else {
+            return appendingPathComponent(path)
+        }
     }
 }
