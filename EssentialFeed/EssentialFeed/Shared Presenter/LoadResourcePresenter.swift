@@ -29,6 +29,14 @@ public final class LoadResourcePresenter<Resource, View: ResourceView> {
         self.resourceView = resourceView
         self.mapper = mapper
     }
+    
+    public init(resourceView: View, loadingView: ResourceLoadingView, errorView: ResourceErrorView)
+    where Resource == View.ResourceViewModel {
+        self.resourceView = resourceView
+        self.loadingView = loadingView
+        self.errorView = errorView
+        self.mapper = { $0 }
+    }
 
     public static var loadError: String {
         return NSLocalizedString(
