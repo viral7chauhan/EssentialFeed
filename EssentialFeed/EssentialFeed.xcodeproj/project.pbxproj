@@ -47,7 +47,6 @@
 		E004319628A978B9001AC895 /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E004319528A978B9001AC895 /* FeedPresenter.swift */; };
 		E004319828A97973001AC895 /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = E004319128A97676001AC895 /* Feed.strings */; };
 		E004319A28A97A7C001AC895 /* ResourceErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E004319928A97A7C001AC895 /* ResourceErrorViewModel.swift */; };
-		E004319C28A97AC4001AC895 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E004319B28A97AC4001AC895 /* FeedViewModel.swift */; };
 		E004319E28A97AEF001AC895 /* ResourceLoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E004319D28A97AEF001AC895 /* ResourceLoadingViewModel.swift */; };
 		E004319F28A97F92001AC895 /* FeedLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A2D7C2285392AD00D9077B /* FeedLocalizationTests.swift */; };
 		E00431A128AA6C44001AC895 /* FeedImagePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00431A028AA6C44001AC895 /* FeedImagePresenterTests.swift */; };
@@ -190,7 +189,6 @@
 		E004319328A97678001AC895 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Feed.strings"; sourceTree = "<group>"; };
 		E004319528A978B9001AC895 /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
 		E004319928A97A7C001AC895 /* ResourceErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceErrorViewModel.swift; sourceTree = "<group>"; };
-		E004319B28A97AC4001AC895 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		E004319D28A97AEF001AC895 /* ResourceLoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceLoadingViewModel.swift; sourceTree = "<group>"; };
 		E00431A028AA6C44001AC895 /* FeedImagePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImagePresenterTests.swift; sourceTree = "<group>"; };
 		E00431A228AAC7FD001AC895 /* FeedImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImagePresenter.swift; sourceTree = "<group>"; };
@@ -374,7 +372,6 @@
 			isa = PBXGroup;
 			children = (
 				E004319528A978B9001AC895 /* FeedPresenter.swift */,
-				E004319B28A97AC4001AC895 /* FeedViewModel.swift */,
 				E004319128A97676001AC895 /* Feed.strings */,
 				E00431A228AAC7FD001AC895 /* FeedImagePresenter.swift */,
 				E00431A428AAC8AA001AC895 /* FeedImageViewModel.swift */,
@@ -1212,7 +1209,6 @@
 				E0014A7A27E90207005D708A /* LocalFeedLoader.swift in Sources */,
 				E0014A7B27E90207005D708A /* FeedStore.swift in Sources */,
 				E00431A728AB2D30001AC895 /* FeedImageDataLoader.swift in Sources */,
-				E004319C28A97AC4001AC895 /* FeedViewModel.swift in Sources */,
 				E0636F9B28E9AD9700B6A455 /* CoreDataFeedStore+FeedStore.swift in Sources */,
 				E0014A7C27E90207005D708A /* LocalFeedImage.swift in Sources */,
 				57E220EB29A16202006471E6 /* Paginated.swift in Sources */,
