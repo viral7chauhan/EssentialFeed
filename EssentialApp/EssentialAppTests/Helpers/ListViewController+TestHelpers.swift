@@ -111,6 +111,7 @@ extension ListViewController {
     }
 
     private var feedImageSection: Int { 0 }
+    private var feedLoadSection: Int { 1 }
 
     func feedImageView(at row: Int) -> UITableViewCell? {
         cell(row: row, section: feedImageSection)
@@ -128,5 +129,13 @@ extension ListViewController {
         let ds = tableView.prefetchDataSource
         let index = IndexPath(row: row, section: feedImageSection)
         ds?.tableView?(tableView, cancelPrefetchingForRowsAt: [index])
+    }
+    
+    func simulateLoadMoreAction() {
+        guard let view = cell(row: 0, section: feedLoadSection) else { return }
+        
+        let delegate = tableView.delegate
+        let index = IndexPath(row: 0, section: feedLoadSection)
+        delegate?.tableView?(tableView, willDisplay: view, forRowAt: index)
     }
 }
