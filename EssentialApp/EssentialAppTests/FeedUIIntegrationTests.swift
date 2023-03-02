@@ -199,6 +199,21 @@ final class FeedUIIntegrationTests: XCTestCase {
         sut.simulateErrorViewTap()
         XCTAssertNil(sut.errorMessage)
     }
+	
+	func test_loadMoreCompletion_rendersErrorMessageOnError() {
+		let (sut, loader) = makeSUT()
+		sut.loadViewIfNeeded()
+		loader.completeFeedLoading()
+		
+		sut.simulateLoadMoreFeedAction()
+		XCTAssertEqual(sut.loadMoreFeedErrorMessage, nil)
+		
+		loader.completeLoadMoreWithError()
+		XCTAssertEqual(sut.loadMoreFeedErrorMessage, loadError)
+
+		sut.simulateLoadMoreFeedAction()
+		XCTAssertEqual(sut.loadMoreFeedErrorMessage, nil)
+	}
 
     func test_feedImageView_loadsImageURLWhenVisible() {
         let image0 = makeImage(url: URL(string: "https://url-0.com")!)
