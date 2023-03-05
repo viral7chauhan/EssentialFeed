@@ -145,6 +145,9 @@ extension ListViewController {
 		delegate?.tableView?(tableView, didSelectRowAt: index)
 	}
 	
+	var canLoadMoreFeed: Bool {
+		loadMoreFeedCell() != nil
+	}
 	
 	var isShowingLoadMoreFeedIndicator: Bool {
 		return loadMoreFeedCell()?.isLoading == true
