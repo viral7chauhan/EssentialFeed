@@ -111,6 +111,7 @@ extension ListViewController {
     }
 
     private var feedImageSection: Int { 0 }
+    private var feedLoadMoreSection: Int { 1 }
 
     func feedImageView(at row: Int) -> UITableViewCell? {
         cell(row: row, section: feedImageSection)
@@ -129,4 +130,34 @@ extension ListViewController {
         let index = IndexPath(row: row, section: feedImageSection)
         ds?.tableView?(tableView, cancelPrefetchingForRowsAt: [index])
     }
+    
+    func simulateLoadMoreFeedAction() {
+        guard let view = loadMoreFeedCell() else { return }
+        
+        let delegate = tableView.delegate
+        let index = IndexPath(row: 0, section: feedLoadMoreSection)
+        delegate?.tableView?(tableView, willDisplay: view, forRowAt: index)
+    }
+	
+	func simulateTapOnLoadMoreFeedError() {
+		let delegate = tableView.delegate
+		let index = IndexPath(row: 0, section: feedLoadMoreSection)
+		delegate?.tableView?(tableView, didSelectRowAt: index)
+	}
+	
+	var canLoadMoreFeed: Bool {
+		loadMoreFeedCell() != nil
+	}
+	
+	var isShowingLoadMoreFeedIndicator: Bool {
+		return loadMoreFeedCell()?.isLoading == true
+	}
+	
+	private func loadMoreFeedCell() -> LoadMoreCell? {
+		cell(row: 0, section: feedLoadMoreSection) as? LoadMoreCell
+	}
+	
+	var loadMoreFeedErrorMessage: String? {
+		loadMoreFeedCell()?.message
+	}
 }
