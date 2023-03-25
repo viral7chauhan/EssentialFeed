@@ -11,7 +11,6 @@ import EssentialFeediOS
 import Combine
 
 extension FeedUIIntegrationTests {
-	
 	class LoaderSpy: FeedImageDataLoader {
 		
 		// MARK: - FeedLoader
@@ -94,5 +93,4 @@ extension FeedUIIntegrationTests {
 			imageRequests[index].completion(.failure(error))
 		}
 	}
-	
 }
