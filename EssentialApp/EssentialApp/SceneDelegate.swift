@@ -4,7 +4,7 @@
 //
 //  Created by Viral on 04/10/22.
 //
-
+import OSLog
 import UIKit
 import CoreData
 import EssentialFeed
@@ -14,6 +14,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+	private lazy var logger = Logger(subsystem: "com.viral7chauhan.Essential.EssentialApp",
+									 category: "main")
+	
     private lazy var httpClient: HTTPClient = {
         URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
     }()
@@ -25,6 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 					.defaultDirectoryURL().appending(path: "feed-store.sqlite"))
 		} catch {
 			assertionFailure("Failed to instantiate CoreData store with error: \(error.localizedDescription)")
+			logger.fault("Failed to instantiate CoreData store with error: \(error.localizedDescription)")
 			return NullStore()
 		}
     }()
