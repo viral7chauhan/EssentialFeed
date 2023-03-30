@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		576E462029D5216F00A07DBA /* NullStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E461F29D5216F00A07DBA /* NullStore.swift */; };
 		E0149F4128EB7AD700081952 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0149F4028EB7AD700081952 /* AppDelegate.swift */; };
 		E0149F4328EB7AD700081952 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0149F4228EB7AD700081952 /* SceneDelegate.swift */; };
 		E0149F4528EB7AD700081952 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0149F4428EB7AD700081952 /* ViewController.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		576E461F29D5216F00A07DBA /* NullStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullStore.swift; sourceTree = "<group>"; };
 		E0149F3D28EB7AD700081952 /* EssentialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0149F4028EB7AD700081952 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0149F4228EB7AD700081952 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				E046F85229110F4800C2EDA7 /* WeakRefVirtualProxy.swift */,
 				E046F85429110F4800C2EDA7 /* LoadResourcePresentationAdapter.swift */,
 				E046F84F29110F4700C2EDA7 /* FeedViewAdapter.swift */,
+				576E461F29D5216F00A07DBA /* NullStore.swift */,
 				E0149F4028EB7AD700081952 /* AppDelegate.swift */,
 				E0E3DE2C292D38C0002A3B1B /* CombineHelpers.swift */,
 				E0149F4228EB7AD700081952 /* SceneDelegate.swift */,
@@ -305,6 +308,7 @@
 			files = (
 				E0149F4528EB7AD700081952 /* ViewController.swift in Sources */,
 				E046F85529110F4800C2EDA7 /* FeedUIComposer.swift in Sources */,
+				576E462029D5216F00A07DBA /* NullStore.swift in Sources */,
 				E0E3DE2D292D38C0002A3B1B /* CombineHelpers.swift in Sources */,
 				E0149F4128EB7AD700081952 /* AppDelegate.swift in Sources */,
 				E0F1B5D829578A4D000072CD /* CommentsUIComposer.swift in Sources */,
