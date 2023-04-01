@@ -37,11 +37,11 @@ class FeedAcceptanceTests: XCTestCase {
     func test_onLaunch_displayCachedRemoteFeedWhenCustomerHasNotConnnectivity() {
         let sharedStore = InMemoryFeedStore.empty
         let onlineFeed = launch(httpClient: .online(response), store: sharedStore)
-        onlineFeed.simulateFeedImageVisible(at: 0)
-        onlineFeed.simulateFeedImageVisible(at: 1)
+        onlineFeed.simulateFeedImageViewVisible(at: 0)
+        onlineFeed.simulateFeedImageViewVisible(at: 1)
 		
 		onlineFeed.simulateLoadMoreFeedAction()
-		onlineFeed.simulateFeedImageVisible(at: 2)
+		onlineFeed.simulateFeedImageViewVisible(at: 2)
 
         let offlineFeed = launch(httpClient: .offline, store: sharedStore)
 
