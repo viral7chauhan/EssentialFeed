@@ -57,14 +57,18 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         onRefresh?()
     }
 
-    public func display(_ sections: [CellController]...) {
-        var snapshot = NSDiffableDataSourceSnapshot<Int, CellController>()
-        sections.enumerated().forEach { section, cellControllers in
-            snapshot.appendSections([section])
-            snapshot.appendItems(cellControllers, toSection: section)
-        }
-        dataSource.apply(snapshot, animatingDifferences: true)
-    }
+	public func display(_ sections: [CellController]...) {
+		var snapshot = NSDiffableDataSourceSnapshot<Int, CellController>()
+		sections.enumerated().forEach { section, cellControllers in
+			snapshot.appendSections([section])
+			snapshot.appendItems(cellControllers, toSection: section)
+		}
+		if #available(iOS 15.0, *) {
+			dataSource.applySnapshotUsingReloadData(snapshot)
+		} else {
+			dataSource.apply(snapshot)
+		}
+	}
 
     public func display(_ viewModel: ResourceLoadingViewModel) {
         refreshControl?.update(isRefreshing: viewModel.isLoading)

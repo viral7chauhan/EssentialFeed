@@ -29,9 +29,14 @@ final class CommentsUIIntegrationTests: XCTestCase {
         sut.loadViewIfNeeded()
         XCTAssertEqual(loader.loadCommentsCallCount, 1, "Expected a loading requests once view is loaded")
 
+		sut.simulateUserInitiatedReload()
+		XCTAssertEqual(loader.loadCommentsCallCount, 1, "Expected no request until previous completes")
+		
+		loader.completeCommentsLoading(at: 0)
         sut.simulateUserInitiatedReload()
         XCTAssertEqual(loader.loadCommentsCallCount, 2, "Expected another loading request once user initiated a reload")
 
+		loader.completeCommentsLoading(at: 1)
         sut.simulateUserInitiatedReload()
         XCTAssertEqual(loader.loadCommentsCallCount, 3, "Expected yet another loading request once user initiated another reload")
     }
@@ -40,16 +45,16 @@ final class CommentsUIIntegrationTests: XCTestCase {
         let (sut, loader) = makeSUT()
 
         sut.loadViewIfNeeded()
-        XCTAssertTrue(sut.isShowLoadingIndicator, "Expected loading indicator once view is loaded")
+        XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once view is loaded")
 
         loader.completeCommentsLoading(at: 0)
-        XCTAssertFalse(sut.isShowLoadingIndicator, "Expected no loading indicator once loading completes successfully")
+        XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once loading completes successfully")
 
         sut.simulateUserInitiatedReload()
-        XCTAssertTrue(sut.isShowLoadingIndicator, "Expected loading indicator once user initiated a reload")
+        XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once user initiated a reload")
 
         loader.completeCommentsLoadingWithError(at: 1)
-        XCTAssertFalse(sut.isShowLoadingIndicator, "Expected no loading indicator once user initiated loading completes with error")
+        XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once user initiated loading completes with error")
     }
 
     func test_loadCommentsCompletion_rendersSuccessfullyLoadedComments() {
@@ -197,6 +202,7 @@ final class CommentsUIIntegrationTests: XCTestCase {
 
         func completeCommentsLoading(with comments: [ImageComment] = [], at index: Int = 0) {
             requests[index].send(comments)
+			requests[index].send(completion: .finished)
         }
 
         func completeCommentsLoadingWithError(at index: Int) {
