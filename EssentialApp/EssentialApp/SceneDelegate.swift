@@ -14,6 +14,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+	private lazy var scheduler: AnyDispatchQueueScheduler = DispatchQueue(
+		label: "com.essentialFeed.infra.queue",
+		qos: .userInitiated,
+		attributes: .concurrent
+	).eraseToAnyScheduler()
+	
 	private lazy var logger = Logger(subsystem: "com.viral7chauhan.Essential.EssentialApp",
 									 category: "main")
 	
@@ -42,13 +48,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private lazy var navigationController = UINavigationController(
         rootViewController: FeedUIComposer.feedComposeWith(
             feedLoader: makeRemoteFeedLoaderWithLocalFallback,
-            imageLoader: makeLocalImgeLoaderWithRemoteFallback,
+            imageLoader: makeLocalImageLoaderWithRemoteFallback,
             selection: showComments))
 
-    convenience init(httpClient: HTTPClient, store: FeedStore & FeedImageDataStore) {
+    convenience init(httpClient: HTTPClient,
+					 store: FeedStore & FeedImageDataStore,
+					 scheduler: AnyDispatchQueueScheduler) {
         self.init()
         self.httpClient = httpClient
         self.store = store
+		self.scheduler = scheduler
     }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -119,16 +128,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 			.caching(to: localFeedLoader)
 	}
 	
-    private func makeLocalImgeLoaderWithRemoteFallback(url: URL) -> FeedImageDataLoader.Publisher {
-        let localImageLoader = LocalFeedImageDataLoader(store: store)
-
-        return localImageLoader
-            .loadImageDataPublisher(from: url)
-            .fallback(to: { [httpClient] in
-                httpClient
-                    .getPublisher(url: url)
-                    .tryMap(FeedImageDataMapper.map)
-                    .caching(to: localImageLoader, using: url)
-            })
-    }
+	private func makeLocalImageLoaderWithRemoteFallback(url: URL) -> FeedImageDataLoader.Publisher {
+		let localImageLoader = LocalFeedImageDataLoader(store: store)
+		
+		return localImageLoader
+			.loadImageDataPublisher(from: url)
+			.fallback(to: { [httpClient, scheduler] in
+				httpClient
+					.getPublisher(url: url)
+					.tryMap(FeedImageDataMapper.map)
+					.caching(to: localImageLoader, using: url)
+					.subscribe(on: scheduler)
+					.eraseToAnyPublisher()
+			})
+			.subscribe(on: scheduler)
+			.eraseToAnyPublisher()
+	}
 }
