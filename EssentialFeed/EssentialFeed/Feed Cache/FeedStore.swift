@@ -10,6 +10,10 @@ import Foundation
 public typealias CachedFeed = (feed: [LocalFeedImage], timestamp: Date)
 
 public protocol FeedStore {
+	func deleteCacheFeed() throws
+	func insert(_ feed: [LocalFeedImage], timestamp: Date) throws
+	func retrieve() throws -> CachedFeed?
+	
     typealias DeleteResult = Result<Void, Error>
     typealias DeleteCompletion = (DeleteResult) -> Void
 
@@ -19,15 +23,50 @@ public protocol FeedStore {
     typealias RetrievalResult = Result<CachedFeed?, Error>
     typealias RetrievalCompletion = (RetrievalResult) -> Void
 
-    /// The completion handler can be invoked in any thread.
-    /// Clients are responsible to dispatch to appropriate threads, if needed.
+	@available (*, deprecated)
     func deleteCacheFeed(completion: @escaping DeleteCompletion)
 
-    /// The completion handler can be invoked in any thread.
-    /// Clients are responsible to dispatch to appropriate threads, if needed.
+	@available (*, deprecated)
     func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertCompletion)
 
-    /// The completion handler can be invoked in any thread.
-    /// Clients are responsible to dispatch to appropriate threads, if needed.
+	@available (*, deprecated)
     func retrieve(completion: @escaping RetrievalCompletion)
+}
+
+public extension FeedStore {
+	func deleteCacheFeed() throws {
+		let group = DispatchGroup()
+		group.enter()
+		var result: DeleteResult!
+		deleteCacheFeed {
+			result = $0
+			group.leave()
+		}
+		group.wait()
+		return try result.get()
+	}
+	
+	func insert(_ feed: [LocalFeedImage], timestamp: Date) throws {
+		let group = DispatchGroup()
+		group.enter()
+		var result: InsertResult!
+		insert(feed, timestamp: timestamp) {
+			result = $0
+			group.leave()
+		}
+		group.wait()
+		return try result.get()
+	}
+	
+	func retrieve() throws -> CachedFeed? {
+		let group = DispatchGroup()
+		group.enter()
+		var result: RetrievalResult!
+		retrieve {
+			result = $0
+			group.leave()
+		}
+		group.wait()
+		return try result.get()
+	}
 }
