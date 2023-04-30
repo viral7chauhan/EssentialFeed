@@ -8,36 +8,36 @@
 import Foundation
 import EssentialFeed
 
-final class InMemoryFeedStore: FeedStore, FeedImageDataStore {
-    private(set) var feedCache: CachedFeed?
-    private var feedImageDataCache: [URL: Data] = [:]
-
-    init(feedCache: CachedFeed? = nil) {
-        self.feedCache = feedCache
-    }
-
-    func deleteCacheFeed(completion: @escaping DeleteCompletion) {
+final class InMemoryFeedStore {
+	private(set) var feedCache: CachedFeed?
+	private var feedImageDataCache: [URL: Data] = [:]
+	
+	init(feedCache: CachedFeed? = nil) {
+		self.feedCache = feedCache
+	}
+}
+extension InMemoryFeedStore: FeedStore {
+    func deleteCacheFeed() throws {
         feedCache = nil
-        completion(.success(()))
     }
 
-    func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertCompletion) {
+    func insert(_ feed: [LocalFeedImage], timestamp: Date) throws {
         feedCache = CachedFeed(feed: feed, timestamp: timestamp)
-        completion(.success(()))
     }
 
-    func retrieve(completion: @escaping RetrievalCompletion) {
-        completion(.success(feedCache))
+    func retrieve() throws -> CachedFeed? {
+        feedCache
     }
+}
 
-    func insert(_ data: Data, for url: URL, completion: @escaping (FeedImageDataStore.InsertionResult) -> Void) {
-        feedImageDataCache[url] = data
-        completion(.success(()))
-    }
+extension InMemoryFeedStore: FeedImageDataStore {
+	func insert(_ data: Data, for url: URL) throws {
+		feedImageDataCache[url] = data
+	}
 
-    func retrieve(dataForURL url: URL, completion: @escaping (FeedImageDataStore.RetrievalResult) -> Void) {
-        completion(.success(feedImageDataCache[url]))
-    }
+	func retrieve(dataForURL url: URL) throws -> Data? {
+		feedImageDataCache[url]
+	}
 }
 
 extension InMemoryFeedStore {

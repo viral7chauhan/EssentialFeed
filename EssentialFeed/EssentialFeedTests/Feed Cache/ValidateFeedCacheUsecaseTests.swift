@@ -19,8 +19,8 @@ class ValidateFeedCacheUsecaseTests: XCTestCase {
     func test_validateCache_deletesCacheOnRetrievalError() {
         let (sut, store) = makeSUT()
 
-        sut.validateCache { _ in }
-        store.completeRetrieval(with: anyNSError())
+		store.completeRetrieval(with: anyNSError())
+        try? sut.validateCache()
 
         XCTAssertEqual(store.receivedMsg, [.retrieve, .deletion])
     }
@@ -28,8 +28,8 @@ class ValidateFeedCacheUsecaseTests: XCTestCase {
     func test_validateCache_doesNotDeleteCacheOnEmptyCache() {
         let (sut, store) = makeSUT()
 
-        sut.validateCache { _ in }
-        store.completeRetrieveWithEmptyCache()
+		store.completeRetrieveWithEmptyCache()
+		try? sut.validateCache()
 
         XCTAssertEqual(store.receivedMsg, [.retrieve])
     }
@@ -40,8 +40,8 @@ class ValidateFeedCacheUsecaseTests: XCTestCase {
         let nonExpiredTimestamp = fixedCurrentDate.minusFeedCacheMaxAge().adding(seconds: 1)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
 
-        sut.validateCache { _ in }
-        store.completeRetrieve(with: feed.local, timestamp: nonExpiredTimestamp)
+		store.completeRetrieve(with: feed.local, timestamp: nonExpiredTimestamp)
+		try? sut.validateCache()
 
         XCTAssertEqual(store.receivedMsg, [.retrieve])
     }
@@ -52,8 +52,8 @@ class ValidateFeedCacheUsecaseTests: XCTestCase {
         let expirationTimestamp = fixedCurrentDate.minusFeedCacheMaxAge()
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
 
-        sut.validateCache { _ in }
-        store.completeRetrieve(with: feed.local, timestamp: expirationTimestamp)
+		store.completeRetrieve(with: feed.local, timestamp: expirationTimestamp)
+		try? sut.validateCache()
 
         XCTAssertEqual(store.receivedMsg, [.retrieve, .deletion])
     }
@@ -64,8 +64,8 @@ class ValidateFeedCacheUsecaseTests: XCTestCase {
         let expiredTimestamp = fixedCurrentDate.minusFeedCacheMaxAge().adding(seconds: -1)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
 
-        sut.validateCache { _ in }
-        store.completeRetrieve(with: feed.local, timestamp: expiredTimestamp)
+		store.completeRetrieve(with: feed.local, timestamp: expiredTimestamp)
+		try? sut.validateCache()
 
         XCTAssertEqual(store.receivedMsg, [.retrieve, .deletion])
     }
@@ -134,17 +134,6 @@ class ValidateFeedCacheUsecaseTests: XCTestCase {
         })
     }
 
-    func test_validateCache_doestNotDeleteInvalidCacheAfterSUTInstanceHasBeenDeallocated() {
-        let store = FeedStoreSpy()
-        var sut: LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init)
-
-        sut?.validateCache { _ in }
-        sut = nil
-
-        store.completeRetrieval(with: anyNSError())
-        XCTAssertEqual(store.receivedMsg, [.retrieve])
-    }
-
     // MARK: - Helper
 
     private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #filePath, line: UInt = #line) -> (localFeedLoader: LocalFeedLoader, store: FeedStoreSpy) {
@@ -155,25 +144,20 @@ class ValidateFeedCacheUsecaseTests: XCTestCase {
         return (sut, store)
     }
 
-    private func expect(_ sut: LocalFeedLoader, toCompleteWith expectedResult: LocalFeedLoader.ValidationResult, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
-        let exp = expectation(description: "Wait for load completion")
-
-        sut.validateCache { receivedResult in
-            switch (receivedResult, expectedResult) {
-                case (.success, .success):
-                    break
-
-                case let (.failure(receivedError as NSError), .failure(expectedError as NSError)):
-                    XCTAssertEqual(receivedError, expectedError, file: file, line: line)
-
-                default:
-                    XCTFail("Expected result \(expectedResult), got \(receivedResult) instead", file: file, line: line)
-            }
-
-            exp.fulfill()
-        }
-
-        action()
-        wait(for: [exp], timeout: 1.0)
-    }
+	private func expect(_ sut: LocalFeedLoader, toCompleteWith expectedResult: Result<Void, Error>, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
+		
+		action()
+		let receivedResult = Result { try sut.validateCache() }
+		
+		switch (receivedResult, expectedResult) {
+		case (.success, .success):
+			break
+			
+		case let (.failure(receivedError as NSError), .failure(expectedError as NSError)):
+			XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+			
+		default:
+			XCTFail("Expected result \(expectedResult), got \(receivedResult) instead", file: file, line: line)
+		}
+	}
 }
