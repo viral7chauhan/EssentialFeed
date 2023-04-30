@@ -9,17 +9,6 @@ import Foundation
 import EssentialFeed
 
 class FeedStoreSpy: FeedStore {
-	func retrieve(completion: @escaping RetrievalCompletion) {
-		
-	}
-	
-	func insert(_ feed: [EssentialFeed.LocalFeedImage], timestamp: Date, completion: @escaping InsertCompletion) {
-		
-	}
-	
-	func deleteCacheFeed(completion: @escaping DeleteCompletion) {
-		
-	}
 	
     enum ReceivedMessage: Equatable {
         case deletion

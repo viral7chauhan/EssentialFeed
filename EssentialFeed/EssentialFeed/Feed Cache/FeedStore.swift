@@ -69,4 +69,8 @@ public extension FeedStore {
 		group.wait()
 		return try result.get()
 	}
+	
+	func deleteCacheFeed(completion: @escaping DeleteCompletion) {}
+	func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertCompletion){}
+	func retrieve(completion: @escaping RetrievalCompletion) {}
 }

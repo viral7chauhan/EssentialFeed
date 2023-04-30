@@ -33,11 +33,6 @@ public final class CoreDataFeedStore {
             throw StoreError.failedToLoadPersistentContainer(error)
         }
     }
-
-    func performAsync(_ action: @escaping (NSManagedObjectContext) -> Void) {
-        let context = self.context
-        context.perform { action(context) }
-    }
 	
 	func performSync<R>(_ action: (NSManagedObjectContext) -> Result<R, Error>) throws -> R {
 		let context = self.context
